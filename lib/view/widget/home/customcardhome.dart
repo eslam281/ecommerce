@@ -12,7 +12,7 @@ class CustomCardHome extends StatelessWidget {
     return Stack(children: [
 
       Container(alignment: Alignment.center,height: 150,
-        decoration:BoxDecoration(color:Colors.red,
+        decoration:BoxDecoration(color:AppColor.grey,
             borderRadius:BorderRadius.circular(50) ),
 
         child: ListTile(title:Text(title,

@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonAppbar extends StatelessWidget {
   final void Function()? onPressed;
   final IconData icon;
   final String textbutton;
-  final Color colorItemSelected;
+  final bool active;
   const CustomButtonAppbar({super.key, this.onPressed,
-    required this.icon, required this.textbutton, required this.colorItemSelected});
+    required this.icon, required this.textbutton, required this.active});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class CustomButtonAppbar extends StatelessWidget {
       child:  Column(
         mainAxisSize:MainAxisSize.min,
         children: [
-          Icon(icon,color:colorItemSelected,),
-          Text(textbutton,style:TextStyle(color:colorItemSelected),)
+          Icon(icon,color: active? AppColor.primaryColor : Colors.black,),
+          Text(textbutton,style:TextStyle(color:active? AppColor.primaryColor :Colors.black),)
         ],),
     );
   }

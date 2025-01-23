@@ -1,7 +1,6 @@
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../controller/Homescreencontroller.dart';
 import '../widget/home/custombuttonappbar.dart';
@@ -27,22 +26,22 @@ class HomeScreen extends StatelessWidget {
             child: Row(children: [
               Row(children: [
                  CustomButtonAppbar(icon: Icons.home,textbutton:"Home",
-                   colorItemSelected:AppColor.primaryColor ,
+                active:controller.currentpage==0? true:false,
                 onPressed:(){controller.changePage(0);} ,),
 
                 CustomButtonAppbar(icon: Icons.home,textbutton:"Home",
-                   colorItemSelected:Colors.black ,
+                  active:controller.currentpage==1? true:false,
                 onPressed:(){controller.changePage(1);} ,),
               ],),
             const Spacer(),
             Row(children: [
               CustomButtonAppbar(icon: Icons.home,textbutton:"Home",
-                colorItemSelected:Colors.black ,
-                onPressed:(){controller.changePage(1);} ,),
+                active:controller.currentpage==2? true:false,
+                onPressed:(){controller.changePage(2);} ,),
 
-              CustomButtonAppbar(icon: Icons.home,textbutton:"Home",
-                colorItemSelected:Colors.black ,
-                onPressed:(){controller.changePage(1);} ,),
+              CustomButtonAppbar(icon: Icons.settings,textbutton:"settings",
+                active:controller.currentpage==3? true:false,
+                onPressed:(){controller.changePage(3);} ,),
               ],)
             ],
           ),),
