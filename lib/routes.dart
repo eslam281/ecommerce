@@ -6,7 +6,7 @@ import 'package:ecommercecourse/view/screen/auth/signup.dart';
 import 'package:ecommercecourse/view/screen/auth/success_sinup.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:ecommercecourse/view/screen/auth/verfiycodesignup.dart';
-import 'package:ecommercecourse/view/screen/home.dart';
+import 'package:ecommercecourse/view/screen/homescreen.dart';
 import 'package:ecommercecourse/view/screen/language.dart';
 import 'package:ecommercecourse/view/screen/onboarding.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -31,7 +31,7 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.successSignUp, page: ()=> const SuccessSinUp()),
   GetPage(name: AppRoute.verFiyCodeSignUp, page: ()=> const VerFiyCodeSignUp()),
   // Home
-  GetPage(name: AppRoute.home, page: ()=> const Home()),
+  GetPage(name: AppRoute.home, page: ()=> const HomeScreen()),
 
 
 ];
