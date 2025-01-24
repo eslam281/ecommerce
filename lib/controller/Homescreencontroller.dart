@@ -14,6 +14,12 @@ class HomeScreenControllerImp extends HomeScreenController{
     const Center(child:Text("3"),),
     const Center(child:Text("4"),),
   ];
+  List<String> titlebottomappbat=[
+    "home",
+    "sda",
+    "sdsfada",
+    "sadsda",
+  ];
 
   @override
   changePage(int i) {
