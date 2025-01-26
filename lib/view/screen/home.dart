@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../widget/home/Listcategorieshome.dart';
-import '../widget/home/customAppbar.dart';
+import '../widget/customAppbar.dart';
 import '../widget/home/customcardhome.dart';
 import '../widget/home/customtitlehome.dart';
 

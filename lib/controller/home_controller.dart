@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,7 @@ import '../data/datasource/remote/homedata.dart';
 abstract class HomeContorller extends GetxController{
   initalData();
   getData();
+  goToItems(List categories ,int selectedCat);
 }
 
 class HomeControllerImp extends HomeContorller{
@@ -47,5 +49,13 @@ class HomeControllerImp extends HomeContorller{
       }
     }
     update();
+  }
+
+  @override
+  goToItems(List categories ,int selectedCat) {
+    Get.toNamed(AppRoute.items,arguments:{
+      "categories":categories,
+      "selectedcat":selectedCat
+    });
   }
 }

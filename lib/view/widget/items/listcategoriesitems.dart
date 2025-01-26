@@ -7,9 +7,8 @@ import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/constant/linkapi.dart';
 
-class ListCategoriesHome extends StatelessWidget {
-  final  HomeControllerImp controller;
-  const ListCategoriesHome({super.key, required this.controller});
+class ListCategoriesItems extends GetView<HomeControllerImp> {
+  const ListCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {

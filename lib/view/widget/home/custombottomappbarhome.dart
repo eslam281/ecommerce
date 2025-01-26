@@ -16,9 +16,11 @@ class CustomBottomAppBarHome extends StatelessWidget {
           child: Row(
             // mainAxisAlignment:MainAxisAlignment.spaceBetween,
             children: [
-              ...List.generate(controller.listpage.length,(index) {
+              ...List.generate(controller.listpage.length+1
+                  ,(index) {
                 int i = index > 2 ?index-1:index;
-                 return CustomButtonAppbar(icon: Icons.home,textbutton:controller.titlebottomappbat[i],
+                 return index==2?const Spacer() : CustomButtonAppbar(
+                   icon: Icons.home,textbutton:controller.titlebottomappbat[i],
                     active:controller.currentpage==i? true:false,
                     onPressed:(){controller.changePage(i);}
                     ,);}
