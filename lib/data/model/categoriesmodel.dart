@@ -1,12 +1,12 @@
 class CategoriesModel {
-  int? categoriesId;
+ late int categoriesId;
   String? categoriesName;
   String? categoriesNameAr;
   String? categoriesImage;
   String? categoriesDatatime;
 
   CategoriesModel(
-      {this.categoriesId,
+      {required this.categoriesId,
         this.categoriesName,
         this.categoriesNameAr,
         this.categoriesImage,

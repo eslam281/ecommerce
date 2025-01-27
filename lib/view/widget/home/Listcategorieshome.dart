@@ -23,8 +23,7 @@ class ListCategoriesHome extends StatelessWidget {
 
           itemBuilder:(context, i) {
             var current=controller.categories[i];
-            return Categories(index:i,
-                categoriesModel:CategoriesModel.fromJson(current));
+            return Categories(categoriesModel:CategoriesModel.fromJson(current));
           }
       ),);
   }
@@ -32,13 +31,12 @@ class ListCategoriesHome extends StatelessWidget {
 
 class Categories extends GetView<HomeControllerImp> {
   final CategoriesModel categoriesModel;
-  final int index;
-  const Categories({super.key,required this.index,  required this.categoriesModel});
+  const Categories({super.key, required this.categoriesModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:(){controller.goToItems(controller.categories,index);},
+      onTap:(){controller.goToItems(controller.categories,categoriesModel.categoriesId);},
       child: Column(
         children: [
           Container(width: 70,height:70,decoration:

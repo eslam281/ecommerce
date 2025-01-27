@@ -7,7 +7,7 @@ import '../core/functions/handlingdata.dart';
 abstract class ItemsController extends GetxController{
   intialData();
   changeCat(int val);
-  getItems();
+  getItems(String id);
 }
 
 class ItemsControllerImp extends ItemsController{
@@ -22,12 +22,13 @@ class ItemsControllerImp extends ItemsController{
   intialData() {
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
+    getItems(selectedCat.toString());
   }
 
   @override
   void onInit() {
     intialData();
-    getItems();
+
     super.onInit();
   }
 
@@ -38,9 +39,9 @@ class ItemsControllerImp extends ItemsController{
   }
 
   @override
-  getItems() async{
+  getItems(id) async{
     statusRequest =StatusRequest.loading;
-    var response =await testData.getData();
+    var response =await testData.getData(id);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){

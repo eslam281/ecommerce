@@ -35,13 +35,13 @@ class Categories extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:(){controller.changeCat(index);},
+      onTap:(){controller.changeCat(categoriesModel.categoriesId);},
       child: Column(
         children: [
           GetBuilder<ItemsControllerImp>(
             builder: (controller) => Container(
               padding:const EdgeInsets.only(right: 10,left: 10,bottom:7),
-              decoration:index==controller.selectedCat ?
+              decoration:index==controller.selectedCat!-1 ?
               const BoxDecoration(
                 border:Border(bottom:BorderSide(width:3,color:Colors.red)),
               ):null,
