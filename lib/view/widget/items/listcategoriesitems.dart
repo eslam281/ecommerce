@@ -1,13 +1,11 @@
-import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
-import '../../../core/constant/linkapi.dart';
 
-class ListCategoriesItems extends GetView<HomeControllerImp> {
+class ListCategoriesItems extends GetView<ItemsControllerImp> {
   const ListCategoriesItems({super.key});
 
   @override
@@ -29,7 +27,7 @@ class ListCategoriesItems extends GetView<HomeControllerImp> {
   }
 }
 
-class Categories extends GetView<HomeControllerImp> {
+class Categories extends GetView<ItemsControllerImp> {
   final CategoriesModel categoriesModel;
   final int index;
   const Categories({super.key,required this.index,  required this.categoriesModel});
@@ -37,21 +35,20 @@ class Categories extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:(){controller.goToItems(controller.categories,index);},
+      onTap:(){controller.changeCat(index);},
       child: Column(
         children: [
-          Container(width: 70,height:70,decoration:
-          BoxDecoration(
-              color:AppColor.primaryColor,borderRadius:
-          BorderRadius.circular(10)
-          ),
-            child: SvgPicture.network(
-              "${AppLink.imageCategories}${categoriesModel.categoriesImage}"
-              ,color: AppColor.grey,),
-          ),
-          Text("${categoriesModel.categoriesName}",style:const TextStyle(fontSize:13,color: Colors.black),)
-        ],
-      ),
+          GetBuilder<ItemsControllerImp>(
+            builder: (controller) => Container(
+              padding:const EdgeInsets.only(right: 10,left: 10,bottom:7),
+              decoration:index==controller.selectedCat ?
+              const BoxDecoration(
+                border:Border(bottom:BorderSide(width:3,color:Colors.red)),
+              ):null,
+              child: Text("${categoriesModel.categoriesName}",
+                style:const TextStyle(fontSize:20,color:AppColor.grey2),))
+            ,)
+        ],),
     );
   }
 }
