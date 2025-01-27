@@ -24,5 +24,6 @@ class ItemsControllerImp extends ItemsController{
   @override
   changeCat(int val) {
     selectedCat =val;
+    update();
   }
 }
