@@ -35,11 +35,13 @@ class ItemsControllerImp extends ItemsController{
   @override
   changeCat(int val) {
     selectedCat =val;
+    getItems(val.toString());
     update();
   }
 
   @override
   getItems(id) async{
+    data.clear();
     statusRequest =StatusRequest.loading;
     var response =await testData.getData(id);
     statusRequest =handlingData(response);

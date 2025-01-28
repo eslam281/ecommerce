@@ -14,7 +14,7 @@ class HandlingDataView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (statusRequest == StatusRequest.loading) {
       return  Center(
-        child: Lottie.asset(AppImageAsset.loading,),
+        child: Lottie.asset(AppImageAsset.loading),
       );
     } else if (statusRequest == StatusRequest.offlinefailure) {
       return  Center(
@@ -25,8 +25,8 @@ class HandlingDataView extends StatelessWidget {
         child: Text("Server failure"),
       );
     } else if (statusRequest == StatusRequest.failure) {
-      return const Center(
-        child: Text("No Data"),
+      return Center(
+          child: Lottie.asset(AppImageAsset.noData,repeat:false )
       );
     } else {
       return widget;

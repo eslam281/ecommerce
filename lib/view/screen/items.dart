@@ -18,16 +18,17 @@ class Items extends StatelessWidget {
       body:Container(
         padding: const EdgeInsets.all(15),
         child:GetBuilder<ItemsControllerImp>(builder: (controller) =>
-          HandlingDataView(statusRequest: controller.statusRequest, widget: ListView(children: [
+          ListView(children: [
             const CustomAppbar(titleAppbar:' Find Product'),
             const SizedBox(height: 10,),
             const ListCategoriesItems(),
-            GridView.builder(itemCount:controller.data.length,
+          HandlingDataView(statusRequest: controller.statusRequest, widget:
+          GridView.builder(itemCount:controller.data.length,
               physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio:.7)
               , itemBuilder: (context, index) =>
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index])))
-          ],),),)
+            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]))))
+          ],),),
       ),
     );
   }

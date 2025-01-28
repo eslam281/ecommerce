@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class Items extends StatelessWidget {
     return Stack(children: [
       Container(padding: const EdgeInsets.symmetric(horizontal:10,vertical: 10),
         margin: const EdgeInsets.symmetric(horizontal: 10),
-        child:Image.network("${AppLink.imageItems}${itemsModel.itemsImage}"
+        child:CachedNetworkImage(imageUrl:"${AppLink.imageItems}${itemsModel.itemsImage}"
             ,height: 100,width: 150,fit:BoxFit.fill),),
       Container(height: 120,width: 180,decoration: BoxDecoration(
         color:Colors.black.withValues(alpha:0.3),
