@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
+import '../../../core/functions/translateDatabase.dart';
 
 class ListCategoriesItems extends GetView<ItemsControllerImp> {
   const ListCategoriesItems({super.key});
@@ -45,7 +46,8 @@ class Categories extends GetView<ItemsControllerImp> {
               const BoxDecoration(
                 border:Border(bottom:BorderSide(width:3,color:Colors.red)),
               ):null,
-              child: Text("${categoriesModel.categoriesName}",
+              child: Text("${translateDatabase(categoriesModel.categoriesNameAr
+                  , categoriesModel.categoriesName)}",
                 style:const TextStyle(fontSize:20,color:AppColor.grey2),))
             ,)
         ],),

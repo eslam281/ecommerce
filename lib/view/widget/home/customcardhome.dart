@@ -1,8 +1,10 @@
+import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
 
-class CustomCardHome extends StatelessWidget {
+class CustomCardHome extends GetView<HomeControllerImp> {
   final String title;
   final String body;
   const CustomCardHome({super.key, required this.title, required this.body});
@@ -20,7 +22,9 @@ class CustomCardHome extends StatelessWidget {
           subtitle:Text(body,
             style:const TextStyle(fontSize: 30,color: Colors.white),),),),
 
-      Positioned(top: -20,right: -20,
+      Positioned(top: -20,
+        right:controller.lang=="ar"? null:-20,
+        left:controller.lang=="ar"? -20:null,
         child: Container(width:160,height: 160,
           decoration:BoxDecoration(color:AppColor.secondColor,
               borderRadius:BorderRadius.circular(160)),),

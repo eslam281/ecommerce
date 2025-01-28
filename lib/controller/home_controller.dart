@@ -16,14 +16,18 @@ class HomeControllerImp extends HomeContorller{
   MyServices myServices = Get.find();
   String? username;
   String? id;
+  late String lang;
+
   late StatusRequest statusRequest;
   HomeData testData = HomeData(Get.find());
+
   List data =[];
   List categories =[];
   List items =[];
 
   @override
   initalData(){
+    lang = myServices.sharedPreferences.getString("lang")!;
     username =myServices.sharedPreferences.getString("username");
     id =myServices.sharedPreferences.getString("id");
   }

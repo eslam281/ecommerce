@@ -16,6 +16,12 @@ height: 2, color: AppColor.grey, fontSize: 15),
 colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
 useMaterial3: true,
 );
+
+
+
+
+
+
 ThemeData themeArabic=ThemeData(
   fontFamily: "Cairo",
   textTheme: const TextTheme(

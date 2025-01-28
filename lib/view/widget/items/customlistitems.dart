@@ -1,16 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/linkapi.dart';
+import '../../../core/functions/translateDatabase.dart';
 
-class CustomListItems extends StatelessWidget {
+class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
   const CustomListItems({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(onTap: (){},
+    return InkWell(onTap: (){controller.goToPageProductDetails(itemsModel);},
         child: Card(
       child:Padding(
         padding: const EdgeInsets.all(10),
@@ -19,10 +22,17 @@ class CustomListItems extends StatelessWidget {
           children: [
             CachedNetworkImage(imageUrl:"${AppLink.imageItems}${itemsModel.itemsImage}"
                 ,height: 110,width: 190,fit:BoxFit.fill),
+
              const SizedBox(height: 10,),
-             Text("${itemsModel.itemsName}",style:const TextStyle(fontWeight:FontWeight.bold
-                ,color:Colors.black,fontSize: 18,fontFamily:"sans"),),
-             Text("${itemsModel.itemsDesc?.substring(0,20)}....",textAlign:TextAlign.center,),
+
+             Text("${translateDatabase(itemsModel.itemsNameAr
+                 , itemsModel.itemsName)}",style:const TextStyle(fontWeight:FontWeight.bold
+                ,color:Colors.black,fontSize: 20,fontFamily:"sans"),),
+
+             Text("${translateDatabase(itemsModel.itemsDescAr
+                 , itemsModel.itemsDesc).substring(0,20)}....",
+               textAlign:TextAlign.center,),
+
             Row(children: [
               const Text("Rating 3.5 "),
               ...List.generate(5, (index) => 
