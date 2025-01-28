@@ -46,7 +46,7 @@ class Categories extends GetView<HomeControllerImp> {
           ),
             child: SvgPicture.network(
               "${AppLink.imageCategories}${categoriesModel.categoriesImage}"
-              ,color: AppColor.grey,),
+              ,color: AppColor.grey),
           ),
           Text("${categoriesModel.categoriesName}",style:const TextStyle(fontSize:13,color: Colors.black),)
         ],
