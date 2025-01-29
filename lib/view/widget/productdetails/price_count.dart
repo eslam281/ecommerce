@@ -20,7 +20,7 @@ class PriceCount extends StatelessWidget {
         IconButton(onPressed:onRemove, icon:const Icon(Icons.remove)),
       ],),
       const Spacer(),
-      Text("${price}\$",style:const TextStyle(color:Colors.red,fontSize:30),)
+      Text("$price\$",style:const TextStyle(color:Colors.red,fontSize:30),)
     ],);
   }
 }
