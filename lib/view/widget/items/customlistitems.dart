@@ -20,14 +20,17 @@ class CustomListItems extends GetView<ItemsControllerImp> {
         child: Column(mainAxisAlignment:MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CachedNetworkImage(imageUrl:"${AppLink.imageItems}${itemsModel.itemsImage}"
-                ,height: 110,width: 190,fit:BoxFit.fill),
+
+            Hero(tag:"${itemsModel.itemsId}",
+              child: CachedNetworkImage(imageUrl:"${AppLink.imageItems}${itemsModel.itemsImage}"
+                  ,height: 110,width: 190,fit:BoxFit.fill),
+            ),
 
              const SizedBox(height: 10,),
 
              Text("${translateDatabase(itemsModel.itemsNameAr
                  , itemsModel.itemsName)}",style:const TextStyle(fontWeight:FontWeight.bold
-                ,color:Colors.black,fontSize: 20,fontFamily:"sans"),),
+                ,color:Colors.black,fontSize: 20,fontFamily:"sans"),maxLines: 1),
 
              Text("${translateDatabase(itemsModel.itemsDescAr
                  , itemsModel.itemsDesc).substring(0,20)}....",

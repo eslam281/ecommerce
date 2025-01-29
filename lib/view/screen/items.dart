@@ -23,10 +23,12 @@ class Items extends StatelessWidget {
             const SizedBox(height: 10,),
             const ListCategoriesItems(),
           HandlingDataView(statusRequest: controller.statusRequest, widget:
+
           GridView.builder(itemCount:controller.data.length,
               physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio:.7)
               , itemBuilder: (context, index) =>
+
             CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]))))
           ],),),
       ),
