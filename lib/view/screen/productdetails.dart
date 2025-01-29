@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/linkapi.dart';
+import '../widget/productdetails/price_count.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});
@@ -45,6 +46,10 @@ class ProductDetails extends StatelessWidget {
 
               const SizedBox(height: 10,),
 
+              PriceCount(price:controller.itemsModel.itemsPrice!,
+              count: 2,onAdd:(){},onRemove:(){},),
+              const SizedBox(height: 10,),
+
               Text("${translateDatabase(controller.itemsModel.itemsDescAr
               ,controller.itemsModel.itemsDesc)}",
             style:Theme.of(context).textTheme.bodyLarge?.copyWith(color:AppColor.black,fontSize: 18),),
@@ -52,7 +57,7 @@ class ProductDetails extends StatelessWidget {
               const SizedBox(height: 20,),
               Text("Color", style:Theme.of(context).textTheme.headlineLarge?.
               copyWith(color:AppColor.secondColor3),),
-              const SizedBox(height: 5,),
+              const SizedBox(height: 8,),
 
               Row(children: [
                 Container(height:60,width:90,margin:const EdgeInsets.only(right:10),
