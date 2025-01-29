@@ -9,7 +9,8 @@ import '../../../core/functions/translateDatabase.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
-  const CustomListItems({super.key, required this.itemsModel});
+  final bool active;
+  const CustomListItems( {super.key,required this.active, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +47,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                  Text("${itemsModel.itemsPrice} \$",style:const
                  TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
                      fontSize:18,fontFamily:"sans")),
-                IconButton(onPressed: (){}, icon:false?
-                const Icon(Icons.favorite,color:Colors.red,):
-                const Icon(Icons.favorite_border_outlined))
+                IconButton(onPressed: (){}, icon:
+                Icon(active? Icons.favorite:
+                Icons.favorite_border_outlined)
+                    ,color:Colors.red)
               ],)
           ],),
         )

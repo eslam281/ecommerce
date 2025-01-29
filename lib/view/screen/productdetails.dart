@@ -47,6 +47,7 @@ class ProductDetails extends StatelessWidget {
                 style:Theme.of(context).textTheme.bodyLarge?.copyWith(color:AppColor.black,fontSize: 18),),
 
                   const SizedBox(height: 20,),
+
                   Text("Color", style:Theme.of(context).textTheme.headlineLarge?.
                   copyWith(color:AppColor.secondColor3),),
 
