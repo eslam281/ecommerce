@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:get/get.dart';
@@ -9,17 +10,20 @@ import '../core/functions/handlingdata.dart';
 abstract class ItemsController extends GetxController{
   intialData();
   changeCat(int val);
-  getItems(String id);
+  getItems(String categoryId);
   goToPageProductDetails(ItemsModel itemsmodel);
+  addFavorite(String itemsId,String categoryId);
+  removeFavorite(String itemsId,String categoryId);
 }
 
 class ItemsControllerImp extends ItemsController{
 
   List categories=[];
   int? selectedCat;
-  ItemsData testData = ItemsData(Get.find());
+  ItemsData itemsData = ItemsData(Get.find());
   List data =[];
   late StatusRequest statusRequest ;
+  MyServices myServices = Get.find();
 
   @override
   intialData() {
@@ -43,10 +47,10 @@ class ItemsControllerImp extends ItemsController{
   }
 
   @override
-  getItems(id) async{
+  getItems(categoryId) async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await testData.getData(id);
+    var response =await itemsData.getData(categoryId,myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){
@@ -61,5 +65,37 @@ class ItemsControllerImp extends ItemsController{
   @override
   goToPageProductDetails(ItemsModel itemsmodel) {
     Get.toNamed(AppRoute.productdetails,arguments: {'itemsmodel':itemsmodel});
+  }
+
+  @override
+  addFavorite(String itemsId,String categoryId) async{
+    statusRequest =StatusRequest.loading;
+    var response =await itemsData.addFavorite(
+        itemsId,myServices.sharedPreferences.getString("id")!);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        getItems(categoryId);
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  @override
+  removeFavorite(String itemsId,String categoryId) async{
+    statusRequest =StatusRequest.loading;
+    var response =await itemsData.removeFavorite(
+        itemsId,myServices.sharedPreferences.getString("id")!);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        getItems(categoryId);
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 }
