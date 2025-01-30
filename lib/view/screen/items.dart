@@ -17,7 +17,7 @@ class Items extends StatelessWidget {
     return Scaffold(
       body:Container(
         padding: const EdgeInsets.all(15),
-        child:GetBuilder<ItemsControllerImp>(builder: (controller) =>
+        child:GetBuilder<ItemsControllerImp>(builder:(controller) =>
           ListView(children: [
             const CustomAppbar(titleAppbar:' Find Product'),
             const SizedBox(height: 10,),
@@ -30,8 +30,9 @@ class Items extends StatelessWidget {
                   crossAxisCount:2,childAspectRatio:.7)
               , itemBuilder: (context, index) =>
 
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index])
-              ,active: true,)))
+            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]))
+          )
+          )
           ],),),
       ),
     );
