@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
@@ -46,16 +47,23 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                  Text("${itemsModel.itemsPrice} \$",style:const
                  TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
                      fontSize:18,fontFamily:"sans")),
-                IconButton(onPressed: (){
-                  itemsModel.favorite==1?
-                  controller.removeFavorite(itemsModel.itemsId.toString(),
-                      itemsModel.categoriesId.toString()):
-                  controller.addFavorite(itemsModel.itemsId.toString(),
-                      itemsModel.categoriesId.toString());
-                }, icon:
-                Icon(itemsModel.favorite==1? Icons.favorite:
-                Icons.favorite_border_outlined)
-                    ,color:Colors.red)
+                GetBuilder<FavoriteControllerImp>(
+                  builder: (controller) {
+                    return IconButton(onPressed: (){
+                      (controller.isFavorite[itemsModel.itemsId]==1)?
+                      controller.setFavorite(itemsModel.itemsId, 0) :
+                      controller.setFavorite(itemsModel.itemsId, 1);
+                      // itemsModel.favorite==1?
+                      // controller.removeFavorite(itemsModel.itemsId.toString(),
+                      //     itemsModel.categoriesId.toString()):
+                      // controller.addFavorite(itemsModel.itemsId.toString(),
+                      //     itemsModel.categoriesId.toString());
+                    }, icon:
+                    Icon(controller.isFavorite[itemsModel.itemsId]==1? Icons.favorite:
+                    Icons.favorite_border_outlined)
+                        ,color:Colors.red);
+                  }
+                )
               ],)
           ],),
         )

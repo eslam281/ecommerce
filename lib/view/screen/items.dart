@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/widget/customAppbar.dart';
@@ -14,6 +15,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
+    FavoriteControllerImp controllerF = Get.put(FavoriteControllerImp());
     return Scaffold(
       body:Container(
         padding: const EdgeInsets.all(15),
@@ -28,9 +30,10 @@ class Items extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,
               gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:2,childAspectRatio:.7)
-              , itemBuilder: (context, index) =>
-
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]))
+              , itemBuilder: (context, index) {
+               controllerF.setFavorite(controller.data[index]["items_id"], controller.data[index]["favorite"]);
+                return CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]));
+              }
           )
           )
           ],),),
