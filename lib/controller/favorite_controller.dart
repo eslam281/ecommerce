@@ -10,7 +10,6 @@ abstract class FavoriteController extends GetxController{
   setFavorite(id,val);
   addFavorite(String itemsId);
   removeFavorite(String itemsId);
-  getFavoriteItems();
 }
 
 class FavoriteControllerImp extends FavoriteController{
@@ -20,11 +19,6 @@ class FavoriteControllerImp extends FavoriteController{
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
 
-  @override
-  void onInit() {
-    getFavoriteItems();
-    super.onInit();
-  }
   @override
   setFavorite(id, val) {
     isFavorite[id]=val;
@@ -59,21 +53,6 @@ class FavoriteControllerImp extends FavoriteController{
         statusRequest = StatusRequest.failure;
       }
     }
-  }
-  @override
-  getFavoriteItems() async{
-    data.clear();
-    statusRequest =StatusRequest.loading;
-    var response =await itemsData.getData(myServices.sharedPreferences.getString("id")!);
-    statusRequest =handlingData(response);
-    if(statusRequest == StatusRequest.success){
-      if(response['status']=="success"){
-        data.addAll(response['data']);
-      }else{
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
   }
 
 }

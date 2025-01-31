@@ -16,10 +16,5 @@ class FavoriteData {
     await crud.postData(AppLink.favorite_remove, {"itemsid":itemsId,"userid":userid});
     return response.fold((l) => l, (r) => r,);
   }
-  getData(String userid)async{
-    var response =
-    await crud.postData(AppLink.favorite_view, {"userid":userid});
-    return response.fold((l) => l, (r) => r,);
-  }
 
 }
