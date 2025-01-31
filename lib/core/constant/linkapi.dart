@@ -24,5 +24,6 @@ class AppLink{
   static const String items ="$server/items/items.php";
   static const String favorite_add ="$server/favorite/add.php";
   static const String favorite_remove ="$server/favorite/remove.php";
+  static const String favorite_view ="$server/favorite/view.php";
 
 }

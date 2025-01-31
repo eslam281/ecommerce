@@ -67,35 +67,4 @@ class ItemsControllerImp extends ItemsController{
     Get.toNamed(AppRoute.productdetails,arguments: {'itemsmodel':itemsmodel});
   }
 
-  // @override
-  // addFavorite(String itemsId,String categoryId) async{
-  //   statusRequest =StatusRequest.loading;
-  //   var response =await itemsData.addFavorite(
-  //       itemsId,myServices.sharedPreferences.getString("id")!);
-  //   statusRequest =handlingData(response);
-  //   if(statusRequest == StatusRequest.success){
-  //     if(response['status']=="success"){
-  //       getItems(categoryId);
-  //     }else{
-  //       statusRequest = StatusRequest.failure;
-  //     }
-  //   }
-  //   update();
-  // }
-  //
-  // @override
-  // removeFavorite(String itemsId,String categoryId) async{
-  //   statusRequest =StatusRequest.loading;
-  //   var response =await itemsData.removeFavorite(
-  //       itemsId,myServices.sharedPreferences.getString("id")!);
-  //   statusRequest =handlingData(response);
-  //   if(statusRequest == StatusRequest.success){
-  //     if(response['status']=="success"){
-  //       getItems(categoryId);
-  //     }else{
-  //       statusRequest = StatusRequest.failure;
-  //     }
-  //   }
-  //   update();
-  // }
 }

@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,10 @@ class Home extends StatelessWidget {
             widget: Container(margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
               child: ListView(children: [
 
-                const CustomAppbar(titleAppbar: 'Find Product',),
+                CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
+                  Get.toNamed(AppRoute.myfavroite);
+                },
+                  onPressedIcon:(){},onPressedSearch:(){},),
 
                 const CustomCardHome(title:"A summer surprise",body:"Cashback 20%",),
 

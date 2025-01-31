@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
   final String titleAppbar;
-  final void Function()? onPressedIcon;
-  final void Function()? onPressedSearch;
-  const CustomAppbar({super.key, required this.titleAppbar, this.onPressedIcon, this.onPressedSearch});
+  final void Function() onPressedIcon;
+  final void Function() onPressedIconFavorite;
+  final void Function() onPressedSearch;
+  const CustomAppbar({super.key, required this.titleAppbar, required this.onPressedIcon, required this.onPressedSearch, required this.onPressedIconFavorite});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,14 @@ class CustomAppbar extends StatelessWidget {
       ),width: 60,
         child:IconButton(onPressed:onPressedIcon,
             icon:Icon(Icons.notifications_active_outlined,
+              size:35,color:Colors.grey[600],)),),
+      const SizedBox(width: 10,),
+
+      Container(padding:const EdgeInsets.symmetric(vertical:15),decoration:BoxDecoration(
+          borderRadius:BorderRadius.circular(15),color:Colors.grey[200]
+      ),width: 60,
+        child:IconButton(onPressed:onPressedIconFavorite,
+            icon:Icon(Icons.favorite_border_outlined,
               size:35,color:Colors.grey[600],)),)
     ],);
   }
