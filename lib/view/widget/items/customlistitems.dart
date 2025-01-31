@@ -50,14 +50,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                 GetBuilder<FavoriteControllerImp>(
                   builder: (controller) {
                     return IconButton(onPressed: (){
-                      (controller.isFavorite[itemsModel.itemsId]==1)?
-                      controller.setFavorite(itemsModel.itemsId, 0) :
+                     if (controller.isFavorite[itemsModel.itemsId]==1) {
+                       controller.setFavorite(itemsModel.itemsId, 0);
+                       controller.removeFavorite(itemsModel.itemsId.toString());
+                     }else{
                       controller.setFavorite(itemsModel.itemsId, 1);
-                      // itemsModel.favorite==1?
-                      // controller.removeFavorite(itemsModel.itemsId.toString(),
-                      //     itemsModel.categoriesId.toString()):
-                      // controller.addFavorite(itemsModel.itemsId.toString(),
-                      //     itemsModel.categoriesId.toString());
+                      controller.addFavorite(itemsModel.itemsId.toString());
+                      }
+
                     }, icon:
                     Icon(controller.isFavorite[itemsModel.itemsId]==1? Icons.favorite:
                     Icons.favorite_border_outlined)
