@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/view/widget/myfavorite/customlistfavoriteitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +27,7 @@ class MyFavorite extends StatelessWidget {
                   gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:2,childAspectRatio:.7)
                   , itemBuilder: (context, index) {
-                    return Text("${controller.data[index].itemsName}");
+                    return CustomListFavoriteItems(myFavoriteModel: controller.data[index]);
                   }
               )
               )
