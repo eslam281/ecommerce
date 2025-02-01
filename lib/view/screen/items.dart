@@ -25,7 +25,7 @@ class Items extends StatelessWidget {
             CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
               Get.toNamed(AppRoute.myfavroite);
             },
-              onPressedIcon:(){},onPressedSearch:(){},),
+              onPressedSearch:(){},),
             const SizedBox(height: 10,),
             const ListCategoriesItems(),
           HandlingDataView(statusRequest: controller.statusRequest, widget:

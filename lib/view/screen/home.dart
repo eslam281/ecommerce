@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
                 CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
                   Get.toNamed(AppRoute.myfavroite);
                 },
-                  onPressedIcon:(){},onPressedSearch:(){},),
+                  onPressedSearch:(){},),
 
                 const SizedBox(height: 10,),
 
