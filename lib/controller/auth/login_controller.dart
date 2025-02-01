@@ -61,7 +61,9 @@ class LoginControllerImp extends LoginController{
             myServices.sharedPreferences.setString("step", "2");
             Get.offNamed(AppRoute.home,);
           }else{
-            Get.offNamed(AppRoute.verFiyCodeSignUp,);
+            Get.offNamed(AppRoute.verFiyCodeSignUp,arguments:{
+              "email":email.text
+            });
           }
           // myServices.sharedPreferences.setString("password", response["data"]["users_password"]);
         }else{

@@ -20,7 +20,7 @@ import 'view/screen/auth/login.dart';
 List<GetPage<dynamic>>? routes=[
   //language
   GetPage(name: "/", page: ()=> const Language(),middlewares:[
-    MyMiddleWare()
+    // MyMiddleWare()
   ]),
   //OnBoarding
   GetPage(name: AppRoute.onBoarding, page: ()=> const OnBoarding()),

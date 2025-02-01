@@ -35,7 +35,7 @@ class VerFiyCodeSignUp extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomTextBodyAuth(text: "Please Enter The Digit Code sent to ******@gmail.com"),
+              CustomTextBodyAuth(text: "Please Enter The Digit Code sent to ${controller.email}"),
               const SizedBox(
                 height: 15,
               ),
