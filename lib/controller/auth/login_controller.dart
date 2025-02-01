@@ -11,6 +11,7 @@ import '../../data/datasource/remote/auth/login_data.dart';
 
 abstract class LoginController extends GetxController{
   login();
+  showPassword();
   goToSignUp();
   goToForgetPassword();
 }
@@ -24,46 +25,6 @@ class LoginControllerImp extends LoginController{
   late StatusRequest statusRequest=StatusRequest.onitnial ;
   LoginData loginData = LoginData(Get.find());
   MyServices myServices= Get.find();
-
-  showPassword(){
-    isshowpassword=isshowpassword?false:true;
-    update();
-  }
-  @override
-  goToSignUp() {
-    Get.offNamed(AppRoute.signUp);
-  }
-
-  @override
-  login()async {
-    if(formstate.currentState!.validate()){
-      statusRequest =StatusRequest.loading;
-      update();
-      var response =await loginData.
-      postData(password.text, email.text);
-      statusRequest =handlingData(response);
-      if(statusRequest == StatusRequest.success){
-        if(response['status']=="success"){
-          // data.addAll(response['data']);
-          print(response['data']);
-          myServices.sharedPreferences.setString("id", response["data"]["users_id"].toString());
-          myServices.sharedPreferences.setString("username", response["data"]["users_name"]);
-          myServices.sharedPreferences.setString("email", response["data"]["users_email"]);
-          myServices.sharedPreferences.setString("phone", response["data"]["users_phone"]);
-          myServices.sharedPreferences.setString("step", "2");
-          // myServices.sharedPreferences.setString("password", response["data"]["users_password"]);
-          Get.offNamed(AppRoute.home,);
-        }else{
-          Get.defaultDialog(title:"Warning"
-              ,middleText:"password or Email aren't correct");
-          statusRequest = StatusRequest.failure;
-        }
-      }
-    }else{
-      print("Not valid");
-    }
-    update();
-  }
 
   @override
   void onInit() {
@@ -80,6 +41,50 @@ class LoginControllerImp extends LoginController{
     email.dispose();
     password.dispose();
     super.dispose();
+  }
+
+  @override
+  login()async {
+    if(formstate.currentState!.validate()){
+      statusRequest =StatusRequest.loading;
+      update();
+      var response =await loginData.
+      postData(password.text, email.text);
+      statusRequest =handlingData(response);
+      if(statusRequest == StatusRequest.success){
+        if(response['status']=="success"){
+          if (response["data"]["users_approve"]==1) {
+            myServices.sharedPreferences.setString("id", response["data"]["users_id"].toString());
+            myServices.sharedPreferences.setString("username", response["data"]["users_name"]);
+            myServices.sharedPreferences.setString("email", response["data"]["users_email"]);
+            myServices.sharedPreferences.setString("phone", response["data"]["users_phone"]);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoute.home,);
+          }else{
+            Get.offNamed(AppRoute.verFiyCodeSignUp,);
+          }
+          // myServices.sharedPreferences.setString("password", response["data"]["users_password"]);
+        }else{
+          Get.defaultDialog(title:"Warning"
+              ,middleText:"password or Email aren't correct");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+    }else{
+      print("Not valid");
+    }
+    update();
+  }
+
+  @override
+  showPassword(){
+    isshowpassword=isshowpassword?false:true;
+    update();
+  }
+
+  @override
+  goToSignUp() {
+    Get.offNamed(AppRoute.signUp);
   }
 
   @override

@@ -6,18 +6,25 @@ import '../../core/constant/routes.dart';
 import '../../core/functions/handlingdata.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController{
-  checkCode();
   goToSuccessSignUp(String verfiycode);
+  checkCode();
 }
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
-  VerFiyCodeSignup VerFiyCodeData = VerFiyCodeSignup(Get.find());
+  VerFiyCodeSignup verFiyCodeData = VerFiyCodeSignup(Get.find());
   String? email;
   StatusRequest statusRequest=StatusRequest.onitnial;
+
+  @override
+  void onInit() {
+    email= Get.arguments['email'];
+    super.onInit();
+  }
+
   @override
   goToSuccessSignUp(String verfiycode)async {
     statusRequest =StatusRequest.loading;
     update();
-    var response =await VerFiyCodeData.
+    var response =await verFiyCodeData.
     postData(email!,verfiycode);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
@@ -35,9 +42,6 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
   @override
   checkCode() async{
   }
-  @override
-  void onInit() {
-    email= Get.arguments['email'];
-    super.onInit();
-  }
+
+
 }

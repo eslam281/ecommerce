@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/myfavorite_controller.dart';
 import 'package:ecommercecourse/data/model/myfavoritemodel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/linkapi.dart';
 import '../../../core/functions/translateDatabase.dart';
 
-class CustomListFavoriteItems extends StatelessWidget {
+class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   final MyFavoriteModel myFavoriteModel;
   const CustomListFavoriteItems( {super.key, required this.myFavoriteModel});
 
@@ -46,8 +48,10 @@ class CustomListFavoriteItems extends StatelessWidget {
                       TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
                           fontSize:18,fontFamily:"sans")),
 
-                             IconButton(onPressed: (){}, icon:
-                            const Icon( Icons.delete),color:Colors.red)
+                             IconButton(onPressed: (){
+                               controller.deletefromfavorite(myFavoriteModel.favoriteId.toString());
+                             },
+                                 icon: const Icon( Icons.delete),color:Colors.red)
 
                     ],)
                 ],),

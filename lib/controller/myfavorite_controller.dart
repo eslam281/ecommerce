@@ -8,6 +8,7 @@ import '../data/datasource/remote/myfavorite_data.dart';
 
 abstract class MyFavoriteController extends GetxController{
   getFavoriteItems();
+  deletefromfavorite(String favoriteid);
 }
 
 class MyFavoriteControllerImp extends MyFavoriteController{
@@ -40,4 +41,11 @@ class MyFavoriteControllerImp extends MyFavoriteController{
     update();
   }
 
+  @override
+  deletefromfavorite(String favoriteid) {
+    favoriteData.deleteData(favoriteid);
+    data.removeWhere((element) => element.favoriteId.toString()==favoriteid);
+
+    update();
+  }
 }
