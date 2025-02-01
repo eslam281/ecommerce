@@ -18,7 +18,7 @@ class HomeControllerImp extends HomeContorller{
   String? id;
   late String lang;
 
-  late StatusRequest statusRequest;
+  late StatusRequest statusRequest = StatusRequest.onitnial;
   HomeData testData = HomeData(Get.find());
 
   List data =[];

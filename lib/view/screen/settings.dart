@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/settings_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +10,8 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child:ListView(
+    SettingsControllerImp controller = Get.put(SettingsControllerImp());
+    return ListView(
       children: [
         Stack(alignment:Alignment.center,clipBehavior:Clip.none,
           children: [
@@ -22,22 +24,32 @@ class Settings extends StatelessWidget {
                 backgroundImage:const AssetImage(AppImageAsset.logo),)),),
         ],),
         const SizedBox(height: 100,),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Card(child:Column(
             children: [
-            ListTile(title:Text("title one"),),
-            Divider(),
-            ListTile(title:Text("title one"),),
-              Divider(),
-            ListTile(title:Text("title one"),),
-              Divider(),
-            ListTile(title:Text("title one"),),
+             ListTile(title:const Text("Disable Notifications"),
+                trailing:Switch(value:true, onChanged:(value) {
+
+                },),onTap:(){}),
+            const Divider(),
+             ListTile(title:const Text("Address"),
+                trailing:const Icon(Icons.location_on_outlined),onTap:(){}),
+              const Divider(),
+               ListTile(title:const Text("About us"),
+                  trailing:const Icon(Icons.help_outline_rounded),onTap:(){}),
+              const Divider(),
+             ListTile(title:const Text("Contact us"),
+                trailing:const Icon(Icons.phone_callback_outlined),onTap:(){}),
+              const Divider(),
+            ListTile(title:const Text("Logout",style:TextStyle(color:Colors.red,fontSize:20),),
+            trailing:const Icon(Icons.exit_to_app,color:Colors.red,),
+              onTap:(){
+              controller.logout();
+              },),
           ],),),
         )
       ],
-    ),
-      
     );
   }
 }
