@@ -30,6 +30,8 @@ class Home extends StatelessWidget {
                 },
                   onPressedIcon:(){},onPressedSearch:(){},),
 
+                const SizedBox(height: 10,),
+
                 const CustomCardHome(title:"A summer surprise",body:"Cashback 20%",),
 
                 const CustomTitleHome(title: "Categories",),
@@ -37,9 +39,6 @@ class Home extends StatelessWidget {
 
                 const CustomTitleHome(title: "Product for you",) ,
                 const ListItemsHome(),
-
-                const CustomTitleHome(title: "Offer",) ,
-                const ListItemsHome()
 
               ],),
             ),

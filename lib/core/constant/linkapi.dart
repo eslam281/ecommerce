@@ -12,6 +12,7 @@ class AppLink{
   static const String signup ="$server/auth/signup.php";
   static const String login ="$server/auth/login.php";
   static const String verfiycode ="$server/auth/verfiycode.php";
+  static const String resend ="$server/auth/resend.php";
 
 // ============================== ForgetPassword =================================//
   static const String forgetpassword ="$server/forgetpassword/checkemail.php";

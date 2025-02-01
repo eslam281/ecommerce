@@ -19,8 +19,8 @@ import 'view/screen/auth/login.dart';
 
 List<GetPage<dynamic>>? routes=[
   //language
-  GetPage(name: "/", page: ()=> const Language(),middlewares:[
-    // MyMiddleWare()
+  GetPage(name: "/", page: ()=>  const Language(),middlewares: [
+    MyMiddleWare()
   ]),
   //OnBoarding
   GetPage(name: AppRoute.onBoarding, page: ()=> const OnBoarding()),
@@ -43,19 +43,3 @@ List<GetPage<dynamic>>? routes=[
 
 
 ];
-
-// Map<String, Widget Function(BuildContext)> routesFlutter = {
-//   //OnBoarding
-//   AppRoute.onBoarding: (context)=> const OnBoarding(),
-//
-//   //Auth
-//   AppRoute.login: (context)=> const Login(),
-//   AppRoute.signUp: (context)=> const SignUp(),
-//   AppRoute.forgetPassword: (context)=> const ForgetPassword(),
-//   AppRoute.verFiyCode: (context)=> const VerFiyCode(),
-//   AppRoute.resetPassword: (context)=> const ResetPassword(),
-//   AppRoute.successResetPassword: (context)=> const SuccessResetPassword(),
-//   AppRoute.successSignUp: (context)=> const SuccessSinUp(),
-//   // AppRoute.checkEmail: (context)=> const CheckEmail(),
-//   AppRoute.verFiyCodeSignUp: (context)=> const VerFiyCodeSignUp(),
-// };

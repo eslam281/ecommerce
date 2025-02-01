@@ -7,18 +7,22 @@ import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/constant/linkapi.dart';
 
-class ListItemsHome extends GetView<HomeControllerImp> {
+class ListItemsHome extends StatelessWidget {
   const ListItemsHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(height:110,
-      child: ListView.builder(itemCount:controller.items.length,
-        scrollDirection:Axis.horizontal,
-        itemBuilder: (context, i) {
-          var current=controller.items[i];
-          return Items(itemsModel:ItemsModel.fromJson(current),);
-        },),);
+      child: GetBuilder<HomeControllerImp>(
+        builder: (controller) {
+          return ListView.builder(itemCount:controller.items.length,
+            scrollDirection:Axis.horizontal,
+            itemBuilder: (context, i) {
+              var current=controller.items[i];
+              return Items(itemsModel:ItemsModel.fromJson(current),);
+            },);
+        }
+      ),);
   }
 }
 class Items extends StatelessWidget {

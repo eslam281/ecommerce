@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/view/widget/auth/customtextbodyauth.dart';
 import 'package:ecommercecourse/view/widget/auth/customtexttittleauth.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,10 @@ class VerFiyCodeSignUp extends StatelessWidget {
                   controller.goToSuccessSignUp(verificationCode);
                 }, // end onSubmit
               ),
+              const SizedBox(height: 30,),
+              InkWell(onTap:(){controller.resend();},
+                  child:const Center(child:Text("Resend verify code",
+                style:TextStyle(fontSize:22,color:AppColor.primaryColor),),))
             ],
           ),
         ),

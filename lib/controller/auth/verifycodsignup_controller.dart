@@ -8,6 +8,7 @@ import '../../core/functions/handlingdata.dart';
 abstract class VerifyCodeSignUpController extends GetxController{
   goToSuccessSignUp(String verfiycode);
   checkCode();
+  resend();
 }
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
   VerFiyCodeSignup verFiyCodeData = VerFiyCodeSignup(Get.find());
@@ -41,6 +42,11 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
 
   @override
   checkCode() async{
+  }
+
+  @override
+  resend() {
+    var response =verFiyCodeData.resendData(email!);
   }
 
 
