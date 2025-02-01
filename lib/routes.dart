@@ -6,6 +6,7 @@ import 'package:ecommercecourse/view/screen/auth/signup.dart';
 import 'package:ecommercecourse/view/screen/auth/success_sinup.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:ecommercecourse/view/screen/auth/verfiycodesignup.dart';
+import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home.dart';
 import 'package:ecommercecourse/view/screen/homescreen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
@@ -19,9 +20,11 @@ import 'view/screen/auth/login.dart';
 
 List<GetPage<dynamic>>? routes=[
   //language
-  GetPage(name: "/", page: ()=>  const Language(),middlewares: [
-    MyMiddleWare()
-  ]),
+  // GetPage(name: "/", page: ()=>  const Language(),middlewares: [
+  //   MyMiddleWare()
+  // ]),
+  GetPage(name: "/", page: ()=> const Cart()),
+
   //OnBoarding
   GetPage(name: AppRoute.onBoarding, page: ()=> const OnBoarding()),
 
