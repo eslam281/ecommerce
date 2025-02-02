@@ -1,4 +1,3 @@
-import 'package:ecommercecourse/core/middleware/mymiddleware.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/resetpassword.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/successresetpassword.dart';
@@ -10,7 +9,6 @@ import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home.dart';
 import 'package:ecommercecourse/view/screen/homescreen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
-import 'package:ecommercecourse/view/screen/language.dart';
 import 'package:ecommercecourse/view/screen/myfavorite.dart';
 import 'package:ecommercecourse/view/screen/onboarding.dart';
 import 'package:ecommercecourse/view/screen/productdetails.dart';
