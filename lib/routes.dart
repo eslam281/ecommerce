@@ -5,7 +5,6 @@ import 'package:ecommercecourse/view/screen/auth/signup.dart';
 import 'package:ecommercecourse/view/screen/auth/success_sinup.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:ecommercecourse/view/screen/auth/verfiycodesignup.dart';
-import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home/home.dart';
 import 'package:ecommercecourse/view/screen/home/homescreen.dart';
 import 'package:ecommercecourse/view/screen/home/items.dart';
