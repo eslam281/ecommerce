@@ -20,7 +20,6 @@ class CartControllerImp extends CartController{
 
   @override
   add(String itemsId) async{
-    statusRequest =StatusRequest.loading;
     var response =await cartData.addCart(
         itemsId,myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
@@ -31,11 +30,11 @@ class CartControllerImp extends CartController{
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
   }
 
   @override
   remove(String itemsId) async{
-    statusRequest =StatusRequest.loading;
     var response =await cartData.removeCart(
         itemsId,myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
@@ -46,6 +45,7 @@ class CartControllerImp extends CartController{
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
   }
 
   @override

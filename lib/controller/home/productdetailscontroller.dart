@@ -34,6 +34,19 @@ class ProductDetailsControllerImp extends ProductDetailsController{
     intialData();
     super.onInit();
   }
+  add(){
+    countitems++;
+    cartController.add(itemsModel.itemsId.toString());
+    update();
+  }
+
+  remove(){
+    if(countitems>0) {
+      countitems--;
+      cartController.remove(itemsModel.itemsId.toString());
+      update();
+    }
+  }
 
   @override
   colorOnChange(int index) {

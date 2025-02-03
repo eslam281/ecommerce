@@ -44,13 +44,15 @@ class ProductDetails extends StatelessWidget {
 
                         PriceCount(price:controller.itemsModel.itemsPrice!,
                           count: "${controller.countitems}",
-                          onAdd:(){controller.cartController.add(controller.itemsModel.itemsId.toString());},
-                          onRemove:(){controller.cartController.remove(controller.itemsModel.itemsId.toString());},),
+                          onAdd:(){controller.add();},
+                          onRemove:(){controller.remove();},),
+
                         const SizedBox(height: 10,),
 
                         Text("${translateDatabase(controller.itemsModel.itemsDescAr
                         ,controller.itemsModel.itemsDesc)}",
-                      style:Theme.of(context).textTheme.bodyLarge?.copyWith(color:AppColor.black,fontSize: 18),),
+                      style:Theme.of(context).textTheme.bodyLarge?.
+                      copyWith(color:AppColor.black,fontSize: 18),),
 
                         const SizedBox(height: 20,),
 
