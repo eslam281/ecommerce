@@ -1,6 +1,7 @@
 
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/functions/translateDatabase.dart';
 import 'package:ecommercecourse/view/widget/items/subitemslist.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,9 @@ class ProductDetails extends StatelessWidget {
      Get.put(ProductDetailsControllerImp());
     return Scaffold(
           bottomNavigationBar:Container(margin:const EdgeInsets.symmetric(horizontal:10,vertical:10),
-            height:60,child:MaterialButton(onPressed:(){},
+            height:60,child:MaterialButton(onPressed:(){Get.toNamed(AppRoute.cart);},
             shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15) ),color:AppColor.primaryColor,
-          child:const Text("Add To Cart",style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,
+          child:const Text("Go To Cart",style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,
           color:Colors.white),),),),
 
           body:GetBuilder<ProductDetailsControllerImp>(

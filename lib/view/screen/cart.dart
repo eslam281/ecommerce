@@ -29,7 +29,7 @@ class Cart extends StatelessWidget {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              CustomItemsCartList(title:"Macbook M1",price:"1100.0 \$",count:"2",),
+              CustomItemsCartList(title:"Macbook M1",price:"1100.0 \$",count:"2"),
               CustomItemsCartList(title:"Macbook M1",price:"600.0 \$",count:"2",),
               CustomItemsCartList(title:"Macbook M1",price:"800.0 \$",count:"2",),
               CustomItemsCartList(title:"Macbook M1",price:"300.0 \$",count:"2",),
