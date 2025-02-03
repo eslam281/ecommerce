@@ -1,9 +1,11 @@
-import 'package:ecommercecourse/controller/settings_controller.dart';
+
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/constant/imageasset.dart';
+import '../../../controller/home/settings_controller.dart';
+import '../../../core/constant/imageasset.dart';
+
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

@@ -1,4 +1,3 @@
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constant/imageasset.dart';

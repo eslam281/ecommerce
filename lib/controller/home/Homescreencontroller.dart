@@ -1,8 +1,10 @@
-import 'package:ecommercecourse/view/screen/home.dart';
+import 'package:ecommercecourse/view/screen/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../view/screen/settings.dart';
+import '../../view/screen/home/settings.dart';
+
+
 
 abstract class HomeScreenController extends GetxController {
   changePage(int currentpage);

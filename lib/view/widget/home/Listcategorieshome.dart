@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/home/home_controller.dart';
 import 'package:ecommercecourse/core/functions/translateDatabase.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';

@@ -3,9 +3,10 @@ import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:get/get.dart';
 
-import '../core/class/statusrequest.dart';
-import '../core/constant/routes.dart';
-import '../core/functions/handlingdata.dart';
+import '../../core/class/statusrequest.dart';
+import '../../core/constant/routes.dart';
+import '../../core/functions/handlingdata.dart';
+
 
 abstract class ItemsController extends GetxController{
   intialData();

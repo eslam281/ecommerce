@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/controller/productdetailscontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/home/productdetailscontroller.dart';
 import '../../../core/constant/color.dart';
 
 class SubItemsList extends StatelessWidget {

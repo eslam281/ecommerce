@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/favorite_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/home/items_controller.dart';
 import '../../../core/constant/linkapi.dart';
 import '../../../core/functions/translateDatabase.dart';
 

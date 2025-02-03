@@ -1,14 +1,14 @@
-import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/home/home_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widget/home/Listcategorieshome.dart';
-import '../widget/customAppbar.dart';
-import '../widget/home/customcardhome.dart';
-import '../widget/home/customtitlehome.dart';
+import '../../widget/home/Listcategorieshome.dart';
+import '../../widget/customAppbar.dart';
+import '../../widget/home/customcardhome.dart';
+import '../../widget/home/customtitlehome.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

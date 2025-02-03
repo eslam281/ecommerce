@@ -1,12 +1,13 @@
-import 'package:ecommercecourse/controller/productdetailscontroller.dart';
+
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/functions/translateDatabase.dart';
 import 'package:ecommercecourse/view/widget/items/subitemslist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widget/items/toppageproductdetails.dart';
-import '../widget/productdetails/price_count.dart';
+import '../../../controller/home/productdetailscontroller.dart';
+import '../../widget/items/toppageproductdetails.dart';
+import '../../widget/productdetails/price_count.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});

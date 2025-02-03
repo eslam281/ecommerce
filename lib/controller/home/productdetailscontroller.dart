@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../data/model/itemsmodel.dart';
+import '../../data/model/itemsmodel.dart';
 
 abstract class ProductDetailsController extends GetxController{
   intialData();

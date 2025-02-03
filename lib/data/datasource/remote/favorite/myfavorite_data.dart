@@ -1,5 +1,5 @@
-import '../../../core/class/crud.dart';
-import '../../../core/constant/linkapi.dart';
+import '../../../../core/class/crud.dart';
+import '../../../../core/constant/linkapi.dart';
 
 class MyFavoriteData {
 

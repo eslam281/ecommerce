@@ -2,9 +2,9 @@ import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:get/get.dart';
 
-import '../core/class/statusrequest.dart';
-import '../core/functions/handlingdata.dart';
-import '../data/datasource/remote/homedata.dart';
+import '../../core/class/statusrequest.dart';
+import '../../core/functions/handlingdata.dart';
+import '../../data/datasource/remote/homedata.dart';
 
 abstract class HomeContorller extends GetxController{
   initalData();

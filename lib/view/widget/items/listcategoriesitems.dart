@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/home/items_controller.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/functions/translateDatabase.dart';
 

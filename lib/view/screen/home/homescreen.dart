@@ -2,8 +2,9 @@ import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/Homescreencontroller.dart';
-import '../widget/home/custombottomappbarhome.dart';
+
+import '../../../controller/home/Homescreencontroller.dart';
+import '../../widget/home/custombottomappbarhome.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

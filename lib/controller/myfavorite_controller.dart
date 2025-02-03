@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../core/class/statusrequest.dart';
 import '../core/functions/handlingdata.dart';
 import '../core/services/services.dart';
-import '../data/datasource/remote/myfavorite_data.dart';
+import '../data/datasource/remote/favorite/myfavorite_data.dart';
 
 abstract class MyFavoriteController extends GetxController{
   getFavoriteItems();

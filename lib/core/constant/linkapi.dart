@@ -7,6 +7,7 @@ class AppLink{
   static const String imageItems = "$imageststatic/items/";
 
   static const String test ="$server/test.php";
+
   // ============================== Auth =================================//
 
   static const String signup ="$server/auth/signup.php";
@@ -23,9 +24,16 @@ class AppLink{
 
   static const String homepage ="$server/home.php";
   static const String items ="$server/items/items.php";
+
+// ============================== Favorite =================================//
   static const String favorite_add ="$server/favorite/add.php";
   static const String favorite_remove ="$server/favorite/remove.php";
   static const String favorite_view ="$server/favorite/view.php";
   static const String deletefromfavorite ="$server/favorite/deletefromfavorite.php";
+
+// ============================== Cart =================================//
+  static const String cart_add ="$server/cart/add.php";
+  static const String cart_remove ="$server/cart/remove.php";
+  static const String cart_view ="$server/cart/view.php";
 
 }

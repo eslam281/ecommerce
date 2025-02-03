@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/Homescreencontroller.dart';
+import '../../../controller/home/Homescreencontroller.dart';
 import 'custombuttonappbar.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
