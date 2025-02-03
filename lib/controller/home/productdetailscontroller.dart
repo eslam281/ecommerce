@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/itemsmodel.dart';
@@ -8,6 +9,9 @@ abstract class ProductDetailsController extends GetxController{
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController{
+
+  CartControllerImp cartController =Get.put(CartControllerImp());
+
   late ItemsModel itemsModel;
   List subitems= [
     {"name":"Red","active":true},

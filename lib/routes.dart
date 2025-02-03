@@ -10,18 +10,20 @@ import 'package:ecommercecourse/view/screen/home/home.dart';
 import 'package:ecommercecourse/view/screen/home/homescreen.dart';
 import 'package:ecommercecourse/view/screen/home/items.dart';
 import 'package:ecommercecourse/view/screen/home/productdetails.dart';
+import 'package:ecommercecourse/view/screen/language.dart';
 import 'package:ecommercecourse/view/screen/myfavorite.dart';
 import 'package:ecommercecourse/view/screen/onboarding.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'core/constant/routes.dart';
+import 'core/middleware/mymiddleware.dart';
 import 'view/screen/auth/login.dart';
 
 List<GetPage<dynamic>>? routes=[
   //language
-  // GetPage(name: "/", page: ()=>  const Language(),middlewares: [
-  //   MyMiddleWare()
-  // ]),
-  GetPage(name: "/", page: ()=> const Cart()),
+  GetPage(name: "/", page: ()=>  const Language(),middlewares: [
+    MyMiddleWare()
+  ]),
+  // GetPage(name: "/", page: ()=> const Cart()),
 
   //OnBoarding
   GetPage(name: AppRoute.onBoarding, page: ()=> const OnBoarding()),

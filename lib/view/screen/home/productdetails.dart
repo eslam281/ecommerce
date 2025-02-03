@@ -39,8 +39,9 @@ class ProductDetails extends StatelessWidget {
 
                   const SizedBox(height: 10,),
 
-                  PriceCount(price:controller.itemsModel.itemsPrice!,
-                  count: 2,onAdd:(){},onRemove:(){},),
+                  PriceCount(price:controller.itemsModel.itemsPrice!, count: 2,
+                    onAdd:(){controller.cartController.add(controller.itemsModel.itemsId.toString());},
+                    onRemove:(){controller.cartController.remove(controller.itemsModel.itemsId.toString());},),
                   const SizedBox(height: 10,),
 
                   Text("${translateDatabase(controller.itemsModel.itemsDescAr
