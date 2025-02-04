@@ -49,7 +49,7 @@ class CustomButtonNavgationBarCart extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:20),
-              child: Text("${int.parse(price)+int.parse(shippin)} \$",style:const TextStyle(color:Colors.red,fontSize:18)),
+              child: Text("${double.parse(price).round()+int.parse(shippin)} \$",style:const TextStyle(color:Colors.red,fontSize:18)),
             ),
           ],),
         CustomButtonCart(textbutton: "Place order", onPressed: (){})

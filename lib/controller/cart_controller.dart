@@ -10,12 +10,11 @@ import '../core/services/services.dart';
 abstract class CartController extends GetxController {
   add(String itemsId);
   remove(String itemsId);
-  getCountItems(String itemsId);
   view();
 }
 class CartControllerImp extends CartController{
-  CartData cartData = CartData(Get.find());
 
+  CartData cartData = CartData(Get.find());
   List<CartModel> data =[];
   dynamic priceorder=0;
   int totalcountitems=0;
@@ -31,6 +30,7 @@ class CartControllerImp extends CartController{
 
   @override
   add(String itemsId) async{
+    statusRequest =StatusRequest.loading;
     var response =await cartData.addCart(
         itemsId,myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
@@ -46,6 +46,7 @@ class CartControllerImp extends CartController{
 
   @override
   remove(String itemsId) async{
+    statusRequest =StatusRequest.loading;
     var response =await cartData.removeCart(
         itemsId,myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
@@ -60,40 +61,34 @@ class CartControllerImp extends CartController{
   }
 
   @override
-  getCountItems(String itemsId) async{
-    statusRequest =StatusRequest.loading;
-    var response =await cartData.getCountItems(
-        itemsId,myServices.sharedPreferences.getString("id")!);
-    statusRequest =handlingData(response);
-    if(statusRequest == StatusRequest.success){
-      if(response['status']=="success"){
-        return response["data"];
-      }else{
-        statusRequest = StatusRequest.failure;
-      }
-    }
-  }
-
-  @override
   view()async {
     statusRequest =StatusRequest.loading;
+    update();
     var response =await cartData.viewCart(
         myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
-      if(response['status']=="success"){
-        List responsedata=response["datacart"];
+      if(response['status']=="success"&&response["datacart"]['status']=="success"&&response["datacountprice"]!=false){
+        List responsedata=response["datacart"]['data'];
        data.addAll(responsedata.map((e) => CartModel.fromJson(e)));
        totalcountitems = int.parse( response["datacountprice"]["totalcount"]);
        priceorder = response["datacountprice"]["SUM(itemsprice)"];
-       print(totalcountitems);
-       print(priceorder);
-       print(data);
-
       }else{
         statusRequest = StatusRequest.failure;
       }
     }
     update();
   }
+
+  resetVarCart(){
+    totalcountitems=0;
+    priceorder=0;
+    data.clear();
+  }
+
+  void refreshPage() {
+    resetVarCart();
+    view();
+  }
+
 }

@@ -22,9 +22,7 @@ class Cart extends StatelessWidget {
                CustomButtonNavgationBarCart(
                   price: "${controller.priceorder}"
                   , shippin: "300"),
-          appBar: AppBar(
-            title: const Text("Title"),
-          ),
+
           body: HandlingDataView(
             statusRequest: controller.statusRequest,
             widget: ListView(
@@ -46,13 +44,15 @@ class Cart extends StatelessWidget {
                         controller.data.length,
                         (index) => CustomItemsCartList(
                             cartModel: controller.data[index],
-                            onPressedAdd: () {
-                              controller.add(
+                            onPressedAdd: () async{
+                             await controller.add(
                                   controller.data[index].itemsId.toString());
+                              controller.refreshPage();
                             },
-                            onPressedRemove: () {
-                              controller.remove(
+                            onPressedRemove: () async{
+                             await controller.remove(
                                   controller.data[index].itemsId.toString());
+                              controller.refreshPage();
                             }),
                       ),
                     ],

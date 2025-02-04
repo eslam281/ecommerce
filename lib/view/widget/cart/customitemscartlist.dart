@@ -3,7 +3,6 @@ import 'package:ecommercecourse/core/constant/linkapi.dart';
 import 'package:ecommercecourse/data/model/cartmodel.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/constant/imageasset.dart';
 
 class CustomItemsCartList extends StatelessWidget {
    final CartModel cartModel;
