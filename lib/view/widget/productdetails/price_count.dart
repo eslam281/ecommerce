@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PriceCount extends StatelessWidget {
-  final int price;
+  final dynamic price;
   final String count;
   final void Function() onAdd;
   final void Function() onRemove;

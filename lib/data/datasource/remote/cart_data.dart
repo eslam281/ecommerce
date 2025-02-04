@@ -23,5 +23,10 @@ class CartData {
     await crud.postData(AppLink.cartgetcountitems, {"itemsid":itemsId,"userid":userid});
     return response.fold((l) => l, (r) => r,);
   }
+  viewCart(String userid)async{
+    var response =
+    await crud.postData(AppLink.cart_view, {"userid":userid});
+    return response.fold((l) => l, (r) => r,);
+  }
 
 }

@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
+import 'package:ecommercecourse/data/model/cartmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -14,9 +15,19 @@ abstract class CartController extends GetxController {
 }
 class CartControllerImp extends CartController{
   CartData cartData = CartData(Get.find());
-  List data =[];
+
+  List<CartModel> data =[];
+  dynamic priceorder=0.0;
+  int totalcountitems=0;
+
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
+
+  @override
+  void onInit() {
+    view();
+    super.onInit();
+  }
 
   @override
   add(String itemsId) async{
@@ -56,10 +67,7 @@ class CartControllerImp extends CartController{
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){
-        print(response["data"]);
-        int count =0;
-        count=response["data"];
-        return count;
+        return response["data"];
       }else{
         statusRequest = StatusRequest.failure;
       }
@@ -67,7 +75,25 @@ class CartControllerImp extends CartController{
   }
 
   @override
-  view() {
+  view()async {
+    statusRequest =StatusRequest.loading;
+    var response =await cartData.viewCart(
+        myServices.sharedPreferences.getString("id")!);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        List responsedata=response["datacart"];
+       data.addAll(responsedata.map((e) => CartModel.fromJson(e)));
+       totalcountitems = int.parse( response["datacountprice"]["totalcount"]);
+       priceorder = response["datacountprice"]["SUM(itemsprice)"];
+       print(totalcountitems);
+       print(priceorder);
+       print(data);
 
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 }
