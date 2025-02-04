@@ -2,11 +2,13 @@ class AppLink{
 
   static const String server = "http://10.0.2.2/ecommerce"; //10.0.2.2 =localhost very important
 
+  static const String test ="$server/test.php";
+
+  // ============================== Image =================================//
+
   static const String imageststatic = "$server/upload"; //10.0.2.2 =localhost very important
   static const String imageCategories = "$imageststatic/categories/";
   static const String imageItems = "$imageststatic/items/";
-
-  static const String test ="$server/test.php";
 
   // ============================== Auth =================================//
 

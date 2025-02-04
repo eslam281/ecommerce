@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/core/constant/linkapi.dart';
 import 'package:ecommercecourse/data/model/cartmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,9 @@ class CustomItemsCartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(child:Row(children: [
-      Expanded(flex: 2,child:Image.asset(AppImageAsset.logo,height:90,fit:BoxFit.fill,)),
+      Expanded(flex: 2,child:CachedNetworkImage(imageUrl:"${AppLink.imageItems}${cartModel.itemsImage}"
+        ,height:80,fit:BoxFit.fill,)),
+
        Expanded(flex:3,child:ListTile(title:Text(cartModel.itemsName!),
         subtitle:Text("${cartModel.itemsprice} \$",style:const TextStyle(color:Colors.red,fontSize:15),),)),
       Expanded(child:Column(children: [

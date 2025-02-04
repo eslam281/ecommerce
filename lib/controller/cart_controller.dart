@@ -17,7 +17,7 @@ class CartControllerImp extends CartController{
   CartData cartData = CartData(Get.find());
 
   List<CartModel> data =[];
-  dynamic priceorder=0.0;
+  dynamic priceorder=0;
   int totalcountitems=0;
 
   StatusRequest statusRequest=StatusRequest.onitnial ;
