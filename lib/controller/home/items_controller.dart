@@ -6,9 +6,10 @@ import 'package:get/get.dart';
 import '../../core/class/statusrequest.dart';
 import '../../core/constant/routes.dart';
 import '../../core/functions/handlingdata.dart';
+import 'home_controller.dart';
 
 
-abstract class ItemsController extends GetxController{
+abstract class ItemsController extends SearchMixController{
   intialData();
   changeCat(int val);
   getItems(String categoryId);
@@ -23,11 +24,13 @@ class ItemsControllerImp extends ItemsController{
   int? selectedCat;
   ItemsData itemsData = ItemsData(Get.find());
   List data =[];
+  @override
   late StatusRequest statusRequest ;
   MyServices myServices = Get.find();
 
   @override
   intialData() {
+    listData.clear();
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
     getItems(selectedCat.toString());

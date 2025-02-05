@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 
 import '../../../controller/home/Homescreencontroller.dart';
+import '../../../core/functions/alertexitapp.dart';
 import '../../widget/home/custombottomappbarhome.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +25,13 @@ class HomeScreen extends StatelessWidget {
           floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,
 
           bottomNavigationBar:const CustomBottomAppBarHome(),
-          body: controller.listpage.elementAt(controller.currentpage),
+          body:PopScope(
+            onPopInvokedWithResult:(bool, dynamic){
+                alertExitApp();
+            },
+        canPop: false,
+        child: controller.listpage.elementAt(controller.currentpage),
+          )
         );
       }
     );

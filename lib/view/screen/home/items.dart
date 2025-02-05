@@ -7,8 +7,11 @@ import 'package:get/get.dart';
 import '../../../controller/home/items_controller.dart';
 
 
+import '../../../core/constant/routes.dart';
+import '../../widget/customAppbar.dart';
 import '../../widget/items/customlistitems.dart';
 import '../../widget/items/listcategoriesitems.dart';
+import 'home.dart';
 
 
 class Items extends StatelessWidget {
@@ -23,28 +26,42 @@ class Items extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child:GetBuilder<ItemsControllerImp>(builder:(controller) =>
           ListView(children: [
-            // CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
-            //   Get.toNamed(AppRoute.myfavroite);
-            // },
-            //   onPressedSearch:(){},),
-            const SizedBox(height: 10,),
-            const ListCategoriesItems(),
-          HandlingDataView(statusRequest: controller.statusRequest, widget:
 
-          GridView.builder(itemCount:controller.data.length,
-              physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,
-              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount:2,childAspectRatio:.7)
-              , itemBuilder: (context, index) {
+            CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
+              Get.toNamed(AppRoute.myfavroite);
+            },
+              onPressedSearch:(){
+                controller.onSearchItems();
+              },myController:controller.search ,
+              onChanged:(val) {
+                controller.checkSearch(val);
+              },),
 
-               controllerF.setFavorite(controller.data[index]["items_id"],
-                   controller.data[index]["favorite"]);
+            HandlingDataView(statusRequest: controller.statusRequest,
+                widget:
 
-                return CustomListItems(itemsModel:
-                ItemsModel.fromJson(controller.data[index]));
-              }
-          )
-          )
+                (!controller.isSearch)?
+                Column(children: [
+                  const SizedBox(height: 10,),
+                  const ListCategoriesItems(),
+
+                  GridView.builder(itemCount:controller.data.length,
+                      physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,
+                      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount:2,childAspectRatio:.7)
+                      , itemBuilder: (context, index) {
+
+                        controllerF.setFavorite(controller.data[index]["items_id"],
+                            controller.data[index]["favorite"]);
+
+                        return CustomListItems(itemsModel:
+                        ItemsModel.fromJson(controller.data[index]));
+                      }
+                  )
+                ],)
+                    :
+                ListItemsSearch(listDataModel: controller.listData,)
+            )
           ],),),
       ),
     );

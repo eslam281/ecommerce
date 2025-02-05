@@ -8,12 +8,11 @@ import '../../core/functions/handlingdata.dart';
 import '../../data/datasource/remote/homedata.dart';
 import '../../data/model/itemsmodel.dart';
 
-abstract class HomeContorller extends GetxController{
+abstract class HomeContorller extends SearchMixController{
   initalData();
   getData();
   goToItems(List categories ,int selectedCat);
-  checkSearch(String val);
-  searchData();
+  goToPageProductDetails(ItemsModel itemsmodel);
 }
 
 class HomeControllerImp extends HomeContorller{
@@ -21,12 +20,6 @@ class HomeControllerImp extends HomeContorller{
   String? username;
   String? id;
   late String lang;
-  late TextEditingController search;
-  bool isSearch = false;
-  List<ItemsModel> listData=[];
-
-  late StatusRequest statusRequest = StatusRequest.onitnial;
-  HomeData homeData = HomeData(Get.find());
 
   List data =[];
   List categories =[];
@@ -34,11 +27,9 @@ class HomeControllerImp extends HomeContorller{
 
   @override
   initalData(){
-    search =TextEditingController();
     lang = myServices.sharedPreferences.getString("lang")!;
     username =myServices.sharedPreferences.getString("username");
     id =myServices.sharedPreferences.getString("id");
-    statusRequest =StatusRequest.onitnial;
   }
   @override
   void onInit() {
@@ -71,7 +62,27 @@ class HomeControllerImp extends HomeContorller{
     });
   }
 
+
+
   @override
+  goToPageProductDetails(ItemsModel itemsmodel) {
+    Get.toNamed(AppRoute.productdetails,arguments: {'itemsmodel':itemsmodel});
+  }
+  
+}
+
+class SearchMixController extends GetxController{
+  late TextEditingController search;
+  bool isSearch = false;
+  List<ItemsModel> listData=[];
+  late StatusRequest statusRequest = StatusRequest.onitnial;
+  HomeData homeData = HomeData(Get.find());
+
+  @override
+  void onInit() {
+    search =TextEditingController();
+    super.onInit();
+  }
   checkSearch(String val){
     if (val.isNotEmpty) {
       isSearch=true;
@@ -87,10 +98,9 @@ class HomeControllerImp extends HomeContorller{
     update();
   }
 
-  @override
   searchData()async{
-    listData.clear();
     statusRequest =StatusRequest.loading;
+    listData.clear();
     var response =await homeData.search(search.text);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
@@ -104,5 +114,5 @@ class HomeControllerImp extends HomeContorller{
     }
     update();
   }
-  
+
 }

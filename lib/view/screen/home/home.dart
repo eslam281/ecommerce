@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home/home_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/linkapi.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,7 @@ class Home extends StatelessWidget {
                   controller.checkSearch(val);
                 },),
 
-            HandlingDataView(statusRequest: controller.statusRequest,
+            HandlingDataRequest(statusRequest: controller.statusRequest,
               widget:
 
                 (!controller.isSearch)?
@@ -60,7 +62,7 @@ class Home extends StatelessWidget {
   }
 }
 
-class ListItemsSearch extends StatelessWidget {
+class ListItemsSearch extends GetView<HomeControllerImp> {
   final List<ItemsModel> listDataModel;
   const ListItemsSearch({super.key, required this.listDataModel});
 
@@ -71,7 +73,29 @@ class ListItemsSearch extends StatelessWidget {
       physics:const NeverScrollableScrollPhysics(),
       itemCount: listDataModel.length,
       itemBuilder: (context, index) {
-      return Text(listDataModel[index].itemsName!);
+        var current =listDataModel[index];
+      return Container(
+        height:120,
+        margin: const EdgeInsets.symmetric(vertical:10),
+        child: InkWell(
+          onTap: (){controller.goToPageProductDetails(current);},
+          child: Card(child: Container(
+            padding:const EdgeInsets.all(10),
+            child: Row(children: [
+
+              Expanded(child:
+              CachedNetworkImage(imageUrl:"${AppLink.imageItems}${current.itemsImage}",
+              fit:BoxFit.fill,),),
+
+              Expanded(flex:2,child:ListTile(
+                title:Text("${current.itemsName}"),
+                subtitle:Text("${current.categoriesName}"),
+              )),
+
+            ],),
+          ),),
+        ),
+      );
     },);
   }
 }
