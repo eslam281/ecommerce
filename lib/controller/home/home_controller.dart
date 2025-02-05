@@ -6,12 +6,14 @@ import 'package:get/get.dart';
 import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
 import '../../data/datasource/remote/homedata.dart';
+import '../../data/model/itemsmodel.dart';
 
 abstract class HomeContorller extends GetxController{
   initalData();
   getData();
   goToItems(List categories ,int selectedCat);
   checkSearch(String val);
+  searchData();
 }
 
 class HomeControllerImp extends HomeContorller{
@@ -21,9 +23,10 @@ class HomeControllerImp extends HomeContorller{
   late String lang;
   late TextEditingController search;
   bool isSearch = false;
+  List<ItemsModel> listData=[];
 
   late StatusRequest statusRequest = StatusRequest.onitnial;
-  HomeData testData = HomeData(Get.find());
+  HomeData homeData = HomeData(Get.find());
 
   List data =[];
   List categories =[];
@@ -47,7 +50,7 @@ class HomeControllerImp extends HomeContorller{
   @override
   getData()async{
     statusRequest =StatusRequest.loading;
-    var response =await testData.getData();
+    var response =await homeData.getData();
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){
@@ -80,6 +83,26 @@ class HomeControllerImp extends HomeContorller{
 
   onSearchItems(){
     isSearch=true;
+    searchData();
     update();
   }
+
+  @override
+  searchData()async{
+    listData.clear();
+    statusRequest =StatusRequest.loading;
+    var response =await homeData.search(search.text);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        List responsedata =response["data"];
+        listData.addAll(responsedata.map(
+              (e) => ItemsModel.fromJson(e),));
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+  
 }

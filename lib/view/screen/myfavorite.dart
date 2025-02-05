@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../controller/myfavorite_controller.dart';
 import '../../core/class/handlingdataview.dart';
-import '../widget/customAppbar.dart';
 
 class MyFavorite extends StatelessWidget {
   const MyFavorite({super.key});

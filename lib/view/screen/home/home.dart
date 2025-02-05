@@ -5,6 +5,7 @@ import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/itemsmodel.dart';
 import '../../widget/home/Listcategorieshome.dart';
 import '../../widget/customAppbar.dart';
 import '../../widget/home/customcardhome.dart';
@@ -21,8 +22,7 @@ class Home extends StatelessWidget {
 
     return GetBuilder<HomeControllerImp>(
         builder: (controller) {
-          return HandlingDataView(statusRequest: controller.statusRequest,
-            widget: Container(margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+          return  Container(margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
               child: ListView(children: [
 
                 CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
@@ -34,6 +34,9 @@ class Home extends StatelessWidget {
                 onChanged:(val) {
                   controller.checkSearch(val);
                 },),
+
+            HandlingDataView(statusRequest: controller.statusRequest,
+              widget:
 
                 (!controller.isSearch)?
                 Column(children: [
@@ -48,12 +51,28 @@ class Home extends StatelessWidget {
                   const ListItemsHome(),
                 ],)
                     :
-                    Container()
-
+                  ListItemsSearch(listDataModel: controller.listData,)
+            )
               ],),
-            ),
-          );
+            );
         }
       );
   }
 }
+
+class ListItemsSearch extends StatelessWidget {
+  final List<ItemsModel> listDataModel;
+  const ListItemsSearch({super.key, required this.listDataModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics:const NeverScrollableScrollPhysics(),
+      itemCount: listDataModel.length,
+      itemBuilder: (context, index) {
+      return Text(listDataModel[index].itemsName!);
+    },);
+  }
+}
+

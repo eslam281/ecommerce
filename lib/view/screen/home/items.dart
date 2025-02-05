@@ -1,13 +1,11 @@
 import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/view/widget/customAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/home/items_controller.dart';
 
-import '../../../core/constant/routes.dart';
 
 import '../../widget/items/customlistitems.dart';
 import '../../widget/items/listcategoriesitems.dart';
