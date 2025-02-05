@@ -1,4 +1,3 @@
-import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

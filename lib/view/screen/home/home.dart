@@ -28,17 +28,27 @@ class Home extends StatelessWidget {
                 CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
                   Get.toNamed(AppRoute.myfavroite);
                 },
-                  onPressedSearch:(){},),
+                  onPressedSearch:(){
+                  controller.onSearchItems();
+                  },myController:controller.search ,
+                onChanged:(val) {
+                  controller.checkSearch(val);
+                },),
 
-                const SizedBox(height: 10,),
+                (!controller.isSearch)?
+                Column(children: [
+                  const SizedBox(height: 10,),
 
-                const CustomCardHome(title:"A summer surprise",body:"Cashback 20%",),
+                  const CustomCardHome(title:"A summer surprise",body:"Cashback 20%",),
 
-                const CustomTitleHome(title: "Categories",),
-                ListCategoriesHome(controller: controller,),
+                  const CustomTitleHome(title: "Categories",),
+                  ListCategoriesHome(controller: controller,),
 
-                const CustomTitleHome(title: "Product for you",) ,
-                const ListItemsHome(),
+                  const CustomTitleHome(title: "Product for you",) ,
+                  const ListItemsHome(),
+                ],)
+                    :
+                    Container()
 
               ],),
             ),

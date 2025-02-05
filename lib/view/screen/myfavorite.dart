@@ -16,8 +16,8 @@ class MyFavorite extends StatelessWidget {
       body:Container(padding:const EdgeInsets.symmetric(horizontal:10),
         child: GetBuilder<MyFavoriteControllerImp>(builder:(controller) =>
             ListView(children: [
-              CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){},
-               onPressedSearch:(){},),
+              // CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){},
+              //  onPressedSearch:(){},),
               const SizedBox(height: 10,),
 
               HandlingDataView(statusRequest: controller.statusRequest,

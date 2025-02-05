@@ -22,17 +22,18 @@ class Cart extends StatelessWidget {
                CustomButtonNavgationBarCart(
                   price: "${controller.priceorder}"
                   , shippin: "300"),
+          appBar:AppBar(title:TopAppbarCart(
+              title: "My Cart",
+              onPressed: () {
+                Get.back();
+              }),automaticallyImplyLeading: false,),
 
           body: HandlingDataView(
             statusRequest: controller.statusRequest,
             widget: ListView(
               children: [
-                TopAppbarCart(
-                    title: "My Cart",
-                    onPressed: () {
-                      Get.back();
-                    }),
-                const SizedBox(height: 10),
+
+                const SizedBox(height: 20),
                 TopCardCart(
                     title:
                         'you have ${controller.totalcountitems} Items in your List'),

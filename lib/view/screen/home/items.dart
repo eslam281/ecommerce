@@ -25,10 +25,10 @@ class Items extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child:GetBuilder<ItemsControllerImp>(builder:(controller) =>
           ListView(children: [
-            CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
-              Get.toNamed(AppRoute.myfavroite);
-            },
-              onPressedSearch:(){},),
+            // CustomAppbar(titleAppbar: 'Find Product',onPressedIconFavorite:(){
+            //   Get.toNamed(AppRoute.myfavroite);
+            // },
+            //   onPressedSearch:(){},),
             const SizedBox(height: 10,),
             const ListCategoriesItems(),
           HandlingDataView(statusRequest: controller.statusRequest, widget:

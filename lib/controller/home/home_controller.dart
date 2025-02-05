@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/statusrequest.dart';
@@ -10,6 +11,7 @@ abstract class HomeContorller extends GetxController{
   initalData();
   getData();
   goToItems(List categories ,int selectedCat);
+  checkSearch(String val);
 }
 
 class HomeControllerImp extends HomeContorller{
@@ -17,6 +19,8 @@ class HomeControllerImp extends HomeContorller{
   String? username;
   String? id;
   late String lang;
+  late TextEditingController search;
+  bool isSearch = false;
 
   late StatusRequest statusRequest = StatusRequest.onitnial;
   HomeData testData = HomeData(Get.find());
@@ -27,15 +31,16 @@ class HomeControllerImp extends HomeContorller{
 
   @override
   initalData(){
+    search =TextEditingController();
     lang = myServices.sharedPreferences.getString("lang")!;
     username =myServices.sharedPreferences.getString("username");
     id =myServices.sharedPreferences.getString("id");
+    statusRequest =StatusRequest.onitnial;
   }
   @override
   void onInit() {
     getData();
     initalData();
-    statusRequest =StatusRequest.onitnial;
     super.onInit();
   }
 
@@ -61,5 +66,20 @@ class HomeControllerImp extends HomeContorller{
       "categories":categories,
       "selectedcat":selectedCat
     });
+  }
+
+  @override
+  checkSearch(String val){
+    if (val.isNotEmpty) {
+      isSearch=true;
+    }else{
+      isSearch =false;
+    }
+    update();
+  }
+
+  onSearchItems(){
+    isSearch=true;
+    update();
   }
 }
