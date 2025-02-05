@@ -37,13 +37,13 @@ class Items extends StatelessWidget {
                 controller.checkSearch(val);
               },),
 
+                  const SizedBox(height: 10,),
+                  const ListCategoriesItems(),
             HandlingDataView(statusRequest: controller.statusRequest,
                 widget:
 
                 (!controller.isSearch)?
                 Column(children: [
-                  const SizedBox(height: 10,),
-                  const ListCategoriesItems(),
 
                   GridView.builder(itemCount:controller.data.length,
                       physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,

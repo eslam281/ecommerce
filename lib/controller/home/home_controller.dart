@@ -87,6 +87,7 @@ class SearchMixController extends GetxController{
     if (val.isNotEmpty) {
       isSearch=true;
     }else{
+      statusRequest = StatusRequest.onitnial;
       isSearch =false;
     }
     update();

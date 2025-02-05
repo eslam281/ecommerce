@@ -44,9 +44,25 @@ class CustomListItems extends GetView<ItemsControllerImp> {
             ],),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text("${itemsModel.itemsPrice} \$",style:const
-                 TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
-                     fontSize:18,fontFamily:"sans")),
+                (itemsModel.itemsDiscount!>0)?
+                Row(children: [
+                  Text("${itemsModel.itemsPrice-(itemsModel.itemsPrice*itemsModel.itemsDiscount/100)} \$",style:const
+                  TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+                      fontSize:18,fontFamily:"sans")),
+
+                  const SizedBox(width: 15,),
+
+                  Text("${itemsModel.itemsPrice} \$",style:
+                  const TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+                      fontSize:18,fontFamily:"sans",
+                      decoration:TextDecoration.lineThrough,decorationColor: Colors.red,
+                      ),),
+                ],)
+                    :
+                Text("${itemsModel.itemsPrice}\$",style:
+                const TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+                    fontSize:18,fontFamily:"sans",),),
+
                 GetBuilder<FavoriteControllerImp>(
                   builder: (controller) {
                     return IconButton(onPressed: (){
@@ -57,7 +73,6 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       controller.setFavorite(itemsModel.itemsId, 1);
                       controller.addFavorite(itemsModel.itemsId.toString());
                       }
-
                     }, icon:
                     Icon(controller.isFavorite[itemsModel.itemsId]==1? Icons.favorite:
                     Icons.favorite_border_outlined)

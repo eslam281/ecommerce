@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                   controller.checkSearch(val);
                 },),
 
-            HandlingDataRequest(statusRequest: controller.statusRequest,
+            HandlingDataView(statusRequest: controller.statusRequest,
               widget:
 
                 (!controller.isSearch)?

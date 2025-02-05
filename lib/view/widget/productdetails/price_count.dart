@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class PriceCount extends StatelessWidget {
   final dynamic price;
+  final dynamic discount;
   final String count;
   final void Function() onAdd;
   final void Function() onRemove;
-  const PriceCount({super.key, required this.price, required this.onAdd, required this.onRemove, required this.count});
+  const PriceCount({super.key, required this.price, required this.onAdd, required this.onRemove,
+    required this.count,required this.discount});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,24 @@ class PriceCount extends StatelessWidget {
         IconButton(onPressed:onRemove, icon:const Icon(Icons.remove)),
       ],),
       const Spacer(),
-      Text("$price\$",style:const TextStyle(color:Colors.red,fontSize:30),)
+      (discount>0)?
+      Row(children: [
+        Text("${price-(price*discount/100)} \$",style:const
+        TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+            fontSize:30,fontFamily:"sans")),
+
+        const SizedBox(width: 15,),
+
+        Text("$price \$",style:
+        const TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+          fontSize:30,fontFamily:"sans",decorationThickness: 2,
+          decoration:TextDecoration.lineThrough,decorationColor: Colors.red,
+        ),),
+      ],)
+          :
+      Text("$price\$",style:
+      const TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
+        fontSize:30,fontFamily:"sans",),),
     ],);
   }
 }

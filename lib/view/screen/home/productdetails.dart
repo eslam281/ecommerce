@@ -42,9 +42,10 @@ class ProductDetails extends StatelessWidget {
                         ,controller.itemsModel.itemsName)}",
                       style:Theme.of(context).textTheme.headlineLarge?.copyWith(color:AppColor.secondColor3),),
 
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 11,),
 
                         PriceCount(price:controller.itemsModel.itemsPrice!,
+                          discount: controller.itemsModel.itemsDiscount!,
                           count: "${controller.countitems}",
                           onAdd:(){controller.add();},
                           onRemove:(){controller.remove();},),
