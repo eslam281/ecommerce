@@ -17,6 +17,7 @@ class PriceCount extends StatelessWidget {
 
         Container(alignment:Alignment.center,decoration:BoxDecoration(border:
         Border.all()),width:50,padding:const EdgeInsets.only(bottom: 2),
+          margin:const EdgeInsets.all(2),
           child: Text(count,style:const TextStyle(fontSize: 20,height:1.5),),),
 
         IconButton(onPressed:onRemove, icon:const Icon(Icons.remove)),

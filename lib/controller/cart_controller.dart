@@ -72,7 +72,7 @@ class CartControllerImp extends CartController{
         List responsedata=response["datacart"]['data'];
        data.addAll(responsedata.map((e) => CartModel.fromJson(e)));
        totalcountitems = int.parse( response["datacountprice"]["totalcount"]);
-       priceorder = response["datacountprice"]["SUM(itemsprice)"];
+       priceorder = response["datacountprice"]["totalprice"];
       }else{
         statusRequest = StatusRequest.failure;
       }
