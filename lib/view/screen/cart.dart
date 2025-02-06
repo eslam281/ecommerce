@@ -25,7 +25,7 @@ class Cart extends StatelessWidget {
           appBar:AppBar(title:TopAppbarCart(
               title: "My Cart",
               onPressed: () {
-                Get.back();
+                controller.goToBack();
               }),automaticallyImplyLeading: false,),
 
           body: HandlingDataView(

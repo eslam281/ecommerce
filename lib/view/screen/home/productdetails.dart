@@ -20,7 +20,7 @@ class ProductDetails extends StatelessWidget {
     return Scaffold(
           bottomNavigationBar:Container(margin:const EdgeInsets.symmetric(horizontal:10,vertical:10),
             height:60,child:MaterialButton(onPressed:(){
-              Get.toNamed(AppRoute.cart);},
+              Get.offAllNamed(AppRoute.cart);},
             shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15) ),color:AppColor.primaryColor,
           child:const Text("Go To Cart",style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,
           color:Colors.white),),),),

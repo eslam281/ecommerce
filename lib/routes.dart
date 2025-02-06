@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/view/screen/address/view.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/resetpassword.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/successresetpassword.dart';
@@ -43,6 +44,8 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.productdetails, page: ()=> const ProductDetails()),
   GetPage(name: AppRoute.myfavroite, page: ()=> const MyFavorite()),
   GetPage(name: AppRoute.cart, page: ()=> const Cart()),
+  // Address
+  GetPage(name: AppRoute.addressView, page: ()=> const AddressView()),
 
 
 ];

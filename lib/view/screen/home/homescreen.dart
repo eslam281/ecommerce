@@ -18,9 +18,6 @@ class HomeScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           floatingActionButton:FloatingActionButton(onPressed:(){Get.toNamed(AppRoute.cart);},
-            backgroundColor:AppColor.primaryColor ,
-            shape: RoundedRectangleBorder(
-                borderRadius:BorderRadius.circular(25) ),elevation: 7,
           child: const Icon(Icons.shopping_basket_outlined),),
           floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,
 

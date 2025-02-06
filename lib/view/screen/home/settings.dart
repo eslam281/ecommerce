@@ -1,5 +1,6 @@
 
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,24 +32,27 @@ class Settings extends StatelessWidget {
           child: Card(child:Column(
             children: [
              ListTile(title:const Text("Disable Notifications"),
-                trailing:Switch(value:true, onChanged:(value) {
 
-                },),onTap:(){}),
+                trailing:Switch(value:true, onChanged:(value) {},),onTap:(){}),
             const Divider(),
+
              ListTile(title:const Text("Address"),
-                trailing:const Icon(Icons.location_on_outlined),onTap:(){}),
+                trailing:const Icon(Icons.location_on_outlined),onTap:(){
+               Get.toNamed(AppRoute.addressView);
+                 }),
+
               const Divider(),
                ListTile(title:const Text("About us"),
                   trailing:const Icon(Icons.help_outline_rounded),onTap:(){}),
+
               const Divider(),
              ListTile(title:const Text("Contact us"),
                 trailing:const Icon(Icons.phone_callback_outlined),onTap:(){}),
+
               const Divider(),
             ListTile(title:const Text("Logout",style:TextStyle(color:Colors.red,fontSize:20),),
             trailing:const Icon(Icons.exit_to_app,color:Colors.red,),
-              onTap:(){
-              controller.logout();
-              },),
+              onTap:(){controller.logout();},),
           ],),),
         )
       ],
