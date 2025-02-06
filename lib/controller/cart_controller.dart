@@ -1,14 +1,12 @@
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
 import 'package:ecommercecourse/data/model/cartmodel.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../core/class/statusrequest.dart';
 import '../core/functions/handlingdata.dart';
 import '../core/services/services.dart';
-import 'home/productdetailscontroller.dart';
 
 abstract class CartController extends GetxController {
   add(String itemsId);
@@ -24,7 +22,6 @@ class CartControllerImp extends CartController{
 
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
-  // ProductDetailsControllerImp controllerImp=Get.find();
 
   @override
   void onInit() {
@@ -95,15 +92,7 @@ class CartControllerImp extends CartController{
     view();
   }
   goToBack(){
-    // for (var element in data) {
-    //   if(controllerImp.itemsModel.itemsId==element.itemsId)
-    //   {
-    //     controllerImp.itemsModel = ItemsModel.fromJson(element.toJson());
-    //   }
-    // }
-    // Get.offNamed(AppRoute.productdetails,arguments:{"itemsmodel":controllerImp.itemsModel});
-
-    
+    Get.offNamed(AppRoute.home);
   }
 
 }
