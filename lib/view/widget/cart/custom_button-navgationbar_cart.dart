@@ -20,6 +20,7 @@ class CustomButtonNavgationBarCart extends StatelessWidget {
     return Column(
       mainAxisSize:MainAxisSize.min,
       children: [
+        if(discount == 0)
         Container(
           padding:const EdgeInsets.symmetric(horizontal:10),
           child:Row(children: [

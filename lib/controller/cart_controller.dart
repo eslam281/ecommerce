@@ -115,9 +115,10 @@ class CartControllerImp extends CartController{
         couponModel = CouponModel.fromJson(response["data"]);
         couponDiscount =couponModel.couponDiscount!;
       }else{
-        statusRequest = StatusRequest.failure;
+        Get.rawSnackbar(title:"Alert" ,messageText:const Text("Coupon Invalid"));
       }
     }
+    controllercoupon.clear();
     update();
   }
 
