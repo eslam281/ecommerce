@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
 import 'package:ecommercecourse/data/model/cartmodel.dart';
+import 'package:ecommercecourse/data/model/couponmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,9 @@ abstract class CartController extends GetxController {
   add(String itemsId);
   remove(String itemsId);
   view();
+  void refreshPage();
+  checkcoupon();
+  goToBack();
 }
 class CartControllerImp extends CartController{
 
@@ -19,7 +23,10 @@ class CartControllerImp extends CartController{
   List<CartModel> data =[];
   dynamic priceorder=0;
   int totalcountitems=0;
+
   late TextEditingController controllercoupon;
+  late CouponModel couponModel;
+  int couponDiscount=0;
 
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
@@ -27,6 +34,7 @@ class CartControllerImp extends CartController{
   @override
   void onInit() {
     controllercoupon=TextEditingController();
+    couponModel =CouponModel();
     view();
     super.onInit();
   }
@@ -89,10 +97,35 @@ class CartControllerImp extends CartController{
     data.clear();
   }
 
+  @override
   void refreshPage() {
     resetVarCart();
     view();
   }
+  @override
+
+  @override
+  checkcoupon()async{
+    statusRequest =StatusRequest.loading;
+    var response =await cartData.checkCoupon(controllercoupon.text);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        Get.rawSnackbar(title:"Alert" ,messageText:const Text("Don"));
+        couponModel = CouponModel.fromJson(response["data"]);
+        couponDiscount =couponModel.couponDiscount!;
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  getTotalPrice(){
+   return priceorder -(priceorder * couponDiscount/100) ;
+  }
+
+  @override
   goToBack(){
     Get.offNamed(AppRoute.home);
   }

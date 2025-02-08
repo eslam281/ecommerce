@@ -6,13 +6,14 @@ import 'custombuttoncoupon.dart';
 
 class CustomButtonNavgationBarCart extends StatelessWidget {
   final String price;
-  final String discount;
+  final int discount ;
+  final String shipping;
   final String totalprice;
   final  TextEditingController controllercoupon;
   final  void Function() onApplyCoupon;
 
   const CustomButtonNavgationBarCart({super.key, required this.price,
-    required this.discount, required this.controllercoupon, required this.onApplyCoupon, required this.totalprice});
+     required this.discount, required this.controllercoupon, required this.onApplyCoupon, required this.totalprice, required this.shipping});
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +64,17 @@ class CustomButtonNavgationBarCart extends StatelessWidget {
                 child: Text("$discount % ",style:const TextStyle(fontSize: 16)),
               ),
             ],),
+            Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal:20),
+                child: Text("shipping",style:TextStyle(fontSize: 16),),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:20),
+                child: Text("$shipping \$",style:const TextStyle(fontSize: 16)),
+              ),
+            ],),
 
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -77,7 +89,9 @@ class CustomButtonNavgationBarCart extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal:20),
-                child: Text("${totalprice} \$",style:const TextStyle(color:Colors.red,fontSize:18)),
+                child: Text(
+                    "$totalprice \$"
+                    ,style:const TextStyle(color:Colors.red,fontSize:18)),
               ),
             ],),
         ],),),

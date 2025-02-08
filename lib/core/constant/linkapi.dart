@@ -40,4 +40,7 @@ class AppLink{
   static const String cart_view ="$server/cart/view.php";
   static const String cartgetcountitems ="$server/cart/getcountitems.php";
 
+// ============================== Coupon =================================//
+  static const String checkcoupon ="$server/coupon/checkcoupon.php";
+
 }
