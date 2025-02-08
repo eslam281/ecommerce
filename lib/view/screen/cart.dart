@@ -20,8 +20,10 @@ class Cart extends StatelessWidget {
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton:
                CustomButtonNavgationBarCart(
-                  price: "${controller.priceorder}"
-                  , shippin: "300"),
+                 onApplyCoupon: (){},
+                  price: "${controller.priceorder}",
+                 totalprice:  "${controller.priceorder}"
+                  , discount: "10", controllercoupon:controller.controllercoupon,),
           appBar:AppBar(title:TopAppbarCart(
               title: "My Cart",
               onPressed: () {

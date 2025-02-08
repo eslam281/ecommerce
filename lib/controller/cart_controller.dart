@@ -19,12 +19,14 @@ class CartControllerImp extends CartController{
   List<CartModel> data =[];
   dynamic priceorder=0;
   int totalcountitems=0;
+  late TextEditingController controllercoupon;
 
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
 
   @override
   void onInit() {
+    controllercoupon=TextEditingController();
     view();
     super.onInit();
   }
