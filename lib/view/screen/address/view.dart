@@ -27,7 +27,9 @@ class AddressView extends StatelessWidget {
               child: ListView.builder(
                 itemCount:controller.dataAddress.length,
                 itemBuilder: (context, index) =>
-                CardAddress(addressModel:controller.dataAddress[index],) ,),),
+                CardAddress(addressModel:controller.dataAddress[index], onDelete:(){
+                  controller.remove(controller.dataAddress[index].addressId.toString());
+                },) ,),),
           );
         }
       ),
@@ -38,16 +40,18 @@ class AddressView extends StatelessWidget {
 
 class CardAddress extends StatelessWidget {
   final AddressModel addressModel;
-  const CardAddress({super.key, required this.addressModel,});
+  final void Function() onDelete;
+  const CardAddress({super.key, required this.addressModel, required this.onDelete,});
 
   @override
   Widget build(BuildContext context) {
     return Card(child: Container(
-      padding:EdgeInsets.all(10),
+      padding:const EdgeInsets.all(10),
       child: ListTile(
         title: Text("${addressModel.addressName}"),
-        subtitle:Text("${addressModel.addressStreet}"),
-        trailing:Text("${addressModel.addressCity}") ,
+        subtitle:Text("${addressModel.addressCity} // ${addressModel.addressStreet}"),
+        trailing:IconButton(onPressed:onDelete,
+            icon:const Icon(Icons.delete_outline,color: Colors.red,)) ,
       ),),);
   }
 }

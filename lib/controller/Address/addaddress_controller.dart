@@ -56,7 +56,7 @@ class AddAddressControllerImp extends AddAddressController {
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
           Get.rawSnackbar(title: "Alert", messageText: const Text("Don"));
-          Get.offNamed(AppRoute.home);
+          Get.offAllNamed(AppRoute.home);
         } else {
           statusRequest = StatusRequest.failure;
         }
@@ -64,23 +64,5 @@ class AddAddressControllerImp extends AddAddressController {
       update();
     }
   }
-  remove() async {
-    statusRequest = StatusRequest.loading;
-    Map<String, dynamic> data = {
-      "userid": myServices.sharedPreferences.getString("id")!,
-      "name": name.text,
-      "city": city.text,
-      "street": street.text
-    };
-    var response = await addressData.addData(data);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == "success") {
-        Get.rawSnackbar(title: "Alert", messageText: const Text("Don"));
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
-  }
+
 }

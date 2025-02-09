@@ -25,6 +25,7 @@ class AddressViewControllerImp extends AddressViewController{
     super.onInit();
   }
 
+
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -39,6 +40,20 @@ class AddressViewControllerImp extends AddressViewController{
                   AddressModel.fromJson(e),));
 
         print(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+  remove(String addressid) async {
+    dataAddress.removeWhere((element) => element.addressId.toString()==addressid,);
+    update();
+    var response = await addressData.removeData(addressid);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        Get.rawSnackbar(title: "Alert", messageText: const Text("Don"));
       } else {
         statusRequest = StatusRequest.failure;
       }
