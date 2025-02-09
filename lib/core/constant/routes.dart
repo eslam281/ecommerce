@@ -17,13 +17,15 @@ class AppRoute{
   static const String items = "/items";
   static const String productdetails = "/productdetails";
   static const String myfavroite = "/myfavroite";
-  static const String cart = "/cart";
 
   //Address
   static const String addressView = "/addressView";
   static const String addressAdd  = "/addressAdd";
   static const String addressEdit = "/addressEdit";
 
+  //Checkout
+  static const String cart = "/cart";
+  static const String checkout = "/checkout";
 
 
 }

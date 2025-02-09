@@ -1,5 +1,7 @@
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'buttoncart.dart';
 import 'custombuttoncoupon.dart';
@@ -96,7 +98,9 @@ class CustomButtonNavgationBarCart extends StatelessWidget {
               ),
             ],),
         ],),),
-        CustomButtonCart(textbutton: "Place order", onPressed: (){})
+        CustomButtonCart(textbutton: "Order", onPressed: (){
+          Get.toNamed(AppRoute.checkout);
+        })
       ],);
   }
 }

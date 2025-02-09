@@ -15,7 +15,7 @@ class CustomButtonCart extends StatelessWidget {
         color: AppColor.primaryColor,
         textColor: Colors.white,
         child: Text(textbutton,
-          style:const TextStyle(fontWeight:FontWeight.bold),),),
+          style:const TextStyle(fontWeight:FontWeight.bold,fontSize:20),),),
     );
   }
 }

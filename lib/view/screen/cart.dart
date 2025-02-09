@@ -16,8 +16,9 @@ class Cart extends StatelessWidget {
     Get.put(CartControllerImp());
     return GetBuilder<CartControllerImp>(builder: (controller) {
       return Scaffold(
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
+
           floatingActionButton:
                CustomButtonNavgationBarCart(
                  onApplyCoupon: (){controller.checkcoupon();},
@@ -25,11 +26,10 @@ class Cart extends StatelessWidget {
                  totalprice:  "${controller.getTotalPrice()}"
                   , discount: controller.couponDiscount,
                  controllercoupon:controller.controllercoupon,),
-          appBar:AppBar(title:TopAppbarCart(
-              title: "My Cart",
-              onPressed: () {
-                controller.goToBack();
-              }),automaticallyImplyLeading: false,),
+
+          appBar:AppBar(title:TopAppbarCart(title: "My Cart",
+              onPressed: () {controller.goToBack();}),
+            automaticallyImplyLeading: false,),
 
           body: HandlingDataView(
             statusRequest: controller.statusRequest,
@@ -40,6 +40,7 @@ class Cart extends StatelessWidget {
                 TopCardCart(
                     title:
                         'you have ${controller.totalcountitems} Items in your List'),
+
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Column(

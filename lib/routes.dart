@@ -8,6 +8,7 @@ import 'package:ecommercecourse/view/screen/auth/success_sinup.dart';
 import 'package:ecommercecourse/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:ecommercecourse/view/screen/auth/verfiycodesignup.dart';
 import 'package:ecommercecourse/view/screen/cart.dart';
+import 'package:ecommercecourse/view/screen/checkout.dart';
 import 'package:ecommercecourse/view/screen/home/home.dart';
 import 'package:ecommercecourse/view/screen/home/homescreen.dart';
 import 'package:ecommercecourse/view/screen/home/items.dart';
@@ -44,10 +45,13 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.items, page: ()=> const Items()),
   GetPage(name: AppRoute.productdetails, page: ()=> const ProductDetails()),
   GetPage(name: AppRoute.myfavroite, page: ()=> const MyFavorite()),
-  GetPage(name: AppRoute.cart, page: ()=> const Cart()),
+
   // Address
   GetPage(name: AppRoute.addressView, page: ()=> const AddressView()),
   GetPage(name: AppRoute.addressAdd, page: ()=> const AddressAdd()),
 
+  //Checkout
+  GetPage(name: AppRoute.cart, page: ()=> const Cart()),
+  GetPage(name: AppRoute.checkout, page: ()=> const Checkout()),
 
 ];
