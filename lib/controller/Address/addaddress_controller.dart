@@ -7,7 +7,9 @@ import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
 import '../../core/services/services.dart';
 
-abstract class AddAddressController extends GetxController {}
+abstract class AddAddressController extends GetxController {
+  add();
+}
 
 class AddAddressControllerImp extends AddAddressController {
   AddressData addressData = AddressData(Get.find());
@@ -36,26 +38,9 @@ class AddAddressControllerImp extends AddAddressController {
     super.dispose();
   }
 
-  getdata() async {
-    statusRequest = StatusRequest.loading;
-    Map<String, dynamic> data = {
-      "userid": myServices.sharedPreferences.getString("id")!,
-      "name": name.text,
-      "city": city.text,
-      "street": street.text
-    };
-    var response = await addressData.addData(data);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == "success") {
-        Get.rawSnackbar(title: "Alert", messageText: const Text("Don"));
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
-  }
 
+
+  @override
   add() async {
     if(addressform.currentState!.validate()) {
       statusRequest = StatusRequest.loading;

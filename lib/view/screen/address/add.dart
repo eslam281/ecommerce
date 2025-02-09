@@ -45,7 +45,7 @@ class AddressAdd extends StatelessWidget {
                 child: CustomTextFormAuth(label: "name",hintText:"name for this Address",
                     suffixIcon:const Icon(Icons.note)
                     , mycontroller:controller.name, valid:(val) {
-                     return validInput(val,5,25,"Address");
+                     return validInput(val,1,25,"Address");
                     }, type: TextInputType.streetAddress),
               ),
             const SizedBox(height: 10,),

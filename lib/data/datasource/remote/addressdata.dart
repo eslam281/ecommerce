@@ -9,11 +9,10 @@ class AddressData{
 
   getData(String userid)async{
     var response =
-    await crud.postData(AppLink.address_view, {
-      "address_usersid" :  userid
-    });
+    await crud.postData(AppLink.address_view, {"userid" :  userid});
     return response.fold((l) => l, (r) => r,);
   }
+
   addData(Map<String,dynamic> data)async{
     var response =
     await crud.postData(AppLink.address_add, {
@@ -24,6 +23,7 @@ class AddressData{
     });
     return response.fold((l) => l, (r) => r,);
   }
+
   removeData(String addressid)async{
     var response =
     await crud.postData(AppLink.address_remove, {
