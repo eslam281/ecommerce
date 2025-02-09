@@ -27,7 +27,7 @@ class AddressAdd extends StatelessWidget {
               CustomTextFormAuth(label: "city",hintText:"city",
                   suffixIcon:const Icon(Icons.location_city_outlined)
                   , mycontroller:controller.city, valid:(val) {
-                    validInput(val,5,25,"Address");
+                    return validInput(val,5,25,"Address");
                   }, type: TextInputType.streetAddress),
 
               const SizedBox(height: 20,),
@@ -35,7 +35,7 @@ class AddressAdd extends StatelessWidget {
               CustomTextFormAuth(label: "street", hintText:"street"
                   ,suffixIcon:const Icon(Icons.streetview)
                   , mycontroller:controller.street, valid:(val) {
-                    validInput(val,5,25,"Address");
+                    return  validInput(val,5,25,"Address");
                   }, type: TextInputType.streetAddress),
 
               const SizedBox(height: 20,),
@@ -45,7 +45,7 @@ class AddressAdd extends StatelessWidget {
                 child: CustomTextFormAuth(label: "name",hintText:"name for this Address",
                     suffixIcon:const Icon(Icons.note)
                     , mycontroller:controller.name, valid:(val) {
-                      validInput(val,5,25,"Address");
+                     return validInput(val,5,25,"Address");
                     }, type: TextInputType.streetAddress),
               ),
             const SizedBox(height: 10,),
