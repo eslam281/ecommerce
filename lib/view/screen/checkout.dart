@@ -10,6 +10,14 @@ class Checkout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title:const Text("Checkout"),),
+
+      bottomNavigationBar:Container(
+        padding:const EdgeInsets.symmetric(horizontal: 20),
+        child:MaterialButton(color:AppColor.secondColor,
+        textColor:Colors.white,
+        onPressed: (){},
+      child:const Text("Checkout"),),),
+
       body:Container(padding:const EdgeInsets.all(20),
         child: ListView(children: [
         const Text("Choose Payment Method",style:TextStyle(fontSize: 16,
@@ -50,7 +58,7 @@ class Checkout extends StatelessWidget {
                 child:Column(
                   mainAxisAlignment:MainAxisAlignment.center,
                   children: [
-                Image.asset(AppImageAsset.logo,width:65,color:Colors.white),
+                Image.asset(AppImageAsset.delivery,width:65,color:Colors.white),
                     const Text("Delivery",style:TextStyle(fontWeight:FontWeight.bold
                     ,color:Colors.white),)
               ],),),
@@ -65,12 +73,37 @@ class Checkout extends StatelessWidget {
                 child:Column(
                   mainAxisAlignment:MainAxisAlignment.center,
                   children: [
-                Image.asset(AppImageAsset.logo,width:65,),
+                Image.asset(AppImageAsset.drivethru,width:65,),
                     const Text("Drive thru",style:TextStyle(fontWeight:FontWeight.bold
                     ,color:AppColor.secondColor),)
               ],),),
             ],
-          )
+          ),
+          const SizedBox(height: 10),
+
+          const Text("Shipping Address",style:TextStyle(
+              color: AppColor.primaryColor,fontSize: 16,
+              fontWeight: FontWeight.bold
+          ),),
+          const SizedBox(height: 10),
+          Card(
+            color:  AppColor.primaryColor,
+            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child:const ListTile(
+            title:Text("Home",style:TextStyle(color:Colors.white,
+                fontWeight:FontWeight.bold),),subtitle:Text("ssadfds sad a afa a sfd"
+                ,style: TextStyle(color:Colors.white,fontWeight:FontWeight.bold)),
+          ),),
+          Card(
+            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child:const ListTile(
+            title:Text("company"), subtitle:Text("ssadfds sad a afa a sfd"),
+          ),),
+          Card(
+            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child:const ListTile(
+            title:Text("Home"), subtitle:Text("ssadfds sad a afa a sfd"),
+          ),),
 
       ],),),
     );

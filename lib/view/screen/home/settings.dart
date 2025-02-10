@@ -24,7 +24,7 @@ class Settings extends StatelessWidget {
               decoration:BoxDecoration(color:Colors.white,
                   borderRadius:BorderRadius.circular(100)),
                 child: CircleAvatar(radius:40,backgroundColor:Colors.grey[100],
-                backgroundImage:const AssetImage(AppImageAsset.logo),)),),
+                backgroundImage:const AssetImage(AppImageAsset.avatar),)),),
         ],),
         const SizedBox(height: 100,),
         Padding(

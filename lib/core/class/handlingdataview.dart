@@ -15,12 +15,14 @@ class HandlingDataView extends StatelessWidget {
         ? Center(
         child: Lottie.asset(AppImageAsset.loading, width: 250, height: 250))
         : statusRequest == StatusRequest.offlinefailure
-        ? Center(
-        child: Lottie.asset(AppImageAsset.offline,
+
+        ? Center(child: Lottie.asset(AppImageAsset.offline,
             width: 250, height: 250))
         : statusRequest == StatusRequest.serverfailure
-        ? const Center(
-        child: Text("Server failure"))
+
+        ?  Center(child: Lottie.asset(AppImageAsset.sever,
+            width: 250, height: 250, repeat: true))
+
         : statusRequest == StatusRequest.failure
         ? Center(
         child: Lottie.asset(AppImageAsset.noData,
@@ -40,13 +42,15 @@ class HandlingDataRequest extends StatelessWidget {
     return statusRequest == StatusRequest.loading
         ? Center(
         child: Lottie.asset(AppImageAsset.loading, width: 250, height: 250))
+
         : statusRequest == StatusRequest.offlinefailure
-        ? Center(
-        child: Lottie.asset(AppImageAsset.offline,
+        ? Center(child: Lottie.asset(AppImageAsset.offline,
             width: 250, height: 250))
+
         : statusRequest == StatusRequest.serverfailure
-        ? const Center(
-        child: Text("Server failure"))
+        ? Center(child: Lottie.asset(AppImageAsset.sever,
+        width: 250, height: 250, repeat: true))
+
         : widget;
   }
 }
