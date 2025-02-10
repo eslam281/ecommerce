@@ -72,16 +72,26 @@ class Checkout extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
                 if(controller.deliveryType =="Delivery")
-                const Column(children: [
-                  Text("Shipping Address",style:TextStyle(
+                 Column(children: [
+                  const Text("Shipping Address",style:TextStyle(
                       color: AppColor.primaryColor,fontSize: 16,
                       fontWeight: FontWeight.bold
                   ),),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                  CardShippingAddress(title:"Home",subtitle:"sadness sad a afa a sfd",isActive:true ,),
-                  CardShippingAddress(title:"company",subtitle:"sadness sad a afa a sfd",isActive:false ,),
-                  CardShippingAddress(title:"Home2",subtitle:"sadness sad a afa a sfd",isActive:false ,),
+                  ...List.generate(controller.dataAddress.length,
+                  (index) =>
+                      InkWell(
+                        onTap: () {
+                          controller.chooseShippingAddress(controller.dataAddress[index].addressId!);
+                        },
+                        child: CardShippingAddress(title:"${controller.dataAddress[index].addressName}",
+                            subtitle:"${controller.dataAddress[index].addressCity} // ${controller.dataAddress[index].addressStreet}"
+                            ,isActive:controller.dataAddress[index].addressId == controller.addressId),
+                      )
+                  )
+
+
 
                 ],)
             ],),),

@@ -9,6 +9,7 @@ import '../../data/model/addressmodel.dart';
 
 abstract class AddressViewController extends GetxController{
   getData();
+  remove(String addressid);
 }
 
 class AddressViewControllerImp extends AddressViewController{
@@ -39,13 +40,14 @@ class AddressViewControllerImp extends AddressViewController{
         dataAddress.addAll(responsedata.map((e) =>
                   AddressModel.fromJson(e),));
 
-        print(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
     update();
   }
+
+  @override
   remove(String addressid) async {
     dataAddress.removeWhere((element) => element.addressId.toString()==addressid,);
     update();
