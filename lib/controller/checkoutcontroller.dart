@@ -1,5 +1,7 @@
 import 'package:ecommercecourse/core/class/statusrequest.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/addressdata.dart';
+import 'package:ecommercecourse/data/datasource/remote/checkoutdata.dart';
 import 'package:get/get.dart';
 
 import '../core/functions/handlingdata.dart';
@@ -15,6 +17,7 @@ abstract class CheckoutController extends GetxController{
 class CheckoutControllerImp extends CheckoutController{
 
   AddressData addressData = Get.put(AddressData(Get.find()));
+  CheckoutData checkoutData = Get.put(CheckoutData(Get.find()));
 
   StatusRequest statusRequest =StatusRequest.onitnial;
   MyServices myServices = Get.find();
@@ -66,6 +69,30 @@ class CheckoutControllerImp extends CheckoutController{
             AddressModel.fromJson(e),));
       } else {
         statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  checkout()async{
+    statusRequest = StatusRequest.loading;
+    update();
+    Map data = {
+      "userid":myServices.sharedPreferences.getString("id"),
+      "addressid":addressId.toString(),
+      "orderstyp":deliveryType,
+      "pricedelivery":"10",
+      "ordersprice":priceorder,
+      "couponid":couponId,
+      "pamentmethod":paymentMethod,
+    };
+    var response = await checkoutData.checkout(data);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        Get.offAllNamed(AppRoute.home);
+      } else {
+        statusRequest = StatusRequest.onitnial;
       }
     }
     update();

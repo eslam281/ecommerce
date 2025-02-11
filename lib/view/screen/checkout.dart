@@ -14,7 +14,7 @@ class Checkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CheckoutControllerImp());
+    CheckoutControllerImp controller = Get.put(CheckoutControllerImp());
     return Scaffold(
       appBar:AppBar(title:const Text("Checkout"),),
 
@@ -22,7 +22,7 @@ class Checkout extends StatelessWidget {
         padding:const EdgeInsets.symmetric(horizontal: 20),
         child:MaterialButton(color:AppColor.secondColor,
         textColor:Colors.white,
-        onPressed: (){},
+        onPressed: (){controller.checkout();},
       child:const Text("Checkout"),),),
 
       body:GetBuilder<CheckoutControllerImp>(
@@ -36,12 +36,12 @@ class Checkout extends StatelessWidget {
               fontWeight:FontWeight.bold,color:AppColor.primaryColor),),
 
                 InkWell(onTap:(){
-                  controller.choosePaymentMethod("Cash");
-                },child:CardPaymentMethodCheckout(title:"Cash on Delivery",isActive:controller.paymentMethod=="Cash",)),
+                  controller.choosePaymentMethod("0");
+                },child:CardPaymentMethodCheckout(title:"Cash on Delivery",isActive:controller.paymentMethod=="0",)),
 
                 InkWell(onTap:(){
-                  controller.choosePaymentMethod("Card");
-                },child:CardPaymentMethodCheckout(title:"Payment Card",isActive:controller.paymentMethod=="Card",)),
+                  controller.choosePaymentMethod("1");
+                },child:CardPaymentMethodCheckout(title:"Payment Card",isActive:controller.paymentMethod=="1",)),
 
                 const SizedBox(height: 20,),
 
@@ -54,24 +54,24 @@ class Checkout extends StatelessWidget {
                  Row(
                   children: [
                     InkWell(onTap:(){
-                      controller.chooseDeliveryType("Delivery");
+                      controller.chooseDeliveryType("0");
                     },
                       child: CardDeliveryTypeCheckout(imageName:AppImageAsset.delivery,
-                        title:"Delivery",isActive:"Delivery"==controller.deliveryType,),
+                        title:"Delivery",isActive:"0"==controller.deliveryType,),
                     ),
 
                     const SizedBox(width: 10,),
 
                     InkWell(onTap:(){
-                      controller.chooseDeliveryType("Drive-thru");
+                      controller.chooseDeliveryType("1");
                     },
                       child: CardDeliveryTypeCheckout(imageName:AppImageAsset.drivethru,
-                        title:"Drive-thru",isActive:"Drive-thru"== controller.deliveryType),
+                        title:"Drive-thru",isActive:"1"== controller.deliveryType),
                     ),
                   ],
                 ),
                 const SizedBox(height: 25),
-                if(controller.deliveryType =="Delivery")
+                if(controller.deliveryType =="0")
                  Column(children: [
                   const Text("Shipping Address",style:TextStyle(
                       color: AppColor.primaryColor,fontSize: 16,
