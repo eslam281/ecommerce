@@ -93,7 +93,6 @@ class CheckoutControllerImp extends CheckoutController{
       "coupondiscount":couponDiscount,
       "pamentmethod":paymentMethod,
     };
-    print("====================$priceorder");
     var response = await checkoutData.checkout(data);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {

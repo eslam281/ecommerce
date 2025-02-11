@@ -13,9 +13,10 @@ abstract class CartController extends GetxController {
   add(String itemsId);
   remove(String itemsId);
   view();
-  void refreshPage();
+  refreshPage();
   checkcoupon();
   goToBack();
+  goToPageCheckout();
 }
 class CartControllerImp extends CartController{
 
@@ -133,6 +134,7 @@ class CartControllerImp extends CartController{
     Get.offNamed(AppRoute.home);
   }
 
+  @override
   goToPageCheckout(){
     if(data.isEmpty) {
       Get.snackbar("Alert", " the cart is empty");
