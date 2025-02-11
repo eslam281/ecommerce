@@ -140,11 +140,11 @@ class CartControllerImp extends CartController{
       Get.toNamed(AppRoute.checkout,arguments:
       {
        "couponid":couponId,
+       "coupondiscount":couponDiscount.toString(),
        "priceorder":priceorder.toString(),
       }
-    );
+      );
     }
-
   }
 
 }

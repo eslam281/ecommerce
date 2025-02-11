@@ -29,11 +29,13 @@ class CheckoutControllerImp extends CheckoutController{
 
   late String couponId;
   late String priceorder;
+  late String couponDiscount;
 
   @override
   void onInit() {
     couponId = Get.arguments["couponid"];
     priceorder = Get.arguments["priceorder"];
+    couponDiscount = Get.arguments["coupondiscount"];
     getShippingAddress();
     super.onInit();
   }
@@ -75,6 +77,10 @@ class CheckoutControllerImp extends CheckoutController{
   }
 
   checkout()async{
+    if(paymentMethod==null)return Get.snackbar("Error","please select a payment method");
+    if(deliveryType==null)return Get.snackbar("Error","please select a delivery method");
+    if(addressId==null&&deliveryType!="1")return Get.snackbar("Error","please select a address method");
+
     statusRequest = StatusRequest.loading;
     update();
     Map data = {
@@ -84,15 +90,19 @@ class CheckoutControllerImp extends CheckoutController{
       "pricedelivery":"10",
       "ordersprice":priceorder,
       "couponid":couponId,
+      "coupondiscount":couponDiscount,
       "pamentmethod":paymentMethod,
     };
+    print("====================$priceorder");
     var response = await checkoutData.checkout(data);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
         Get.offAllNamed(AppRoute.home);
+        Get.snackbar("Success", "the order was successfully");
       } else {
         statusRequest = StatusRequest.onitnial;
+        Get.snackbar("Error", "please try again");
       }
     }
     update();
