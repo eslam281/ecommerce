@@ -27,6 +27,7 @@ class CartControllerImp extends CartController{
   late TextEditingController controllercoupon;
   late CouponModel couponModel;
   int couponDiscount=0;
+  String couponId ="0";
 
   StatusRequest statusRequest=StatusRequest.onitnial ;
   MyServices myServices = Get.find();
@@ -114,6 +115,7 @@ class CartControllerImp extends CartController{
         Get.rawSnackbar(title:"Alert" ,messageText:const Text("Don"));
         couponModel = CouponModel.fromJson(response["data"]);
         couponDiscount =couponModel.couponDiscount!;
+        couponId =couponModel.couponId.toString();
       }else{
         Get.rawSnackbar(title:"Alert" ,messageText:const Text("Coupon Invalid"));
       }
@@ -129,6 +131,20 @@ class CartControllerImp extends CartController{
   @override
   goToBack(){
     Get.offNamed(AppRoute.home);
+  }
+
+  goToPageCheckout(){
+    if(data.isEmpty) {
+      Get.snackbar("Alert", " the cart is empty");
+    } else {
+      Get.toNamed(AppRoute.checkout,arguments:
+      {
+       "couponid":couponId,
+       "priceorder":priceorder.toString(),
+      }
+    );
+    }
+
   }
 
 }

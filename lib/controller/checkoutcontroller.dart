@@ -24,8 +24,13 @@ class CheckoutControllerImp extends CheckoutController{
   String? deliveryType;
   int? addressId;
 
+  late String couponId;
+  late String priceorder;
+
   @override
   void onInit() {
+    couponId = Get.arguments["couponid"];
+    priceorder = Get.arguments["priceorder"];
     getShippingAddress();
     super.onInit();
   }
