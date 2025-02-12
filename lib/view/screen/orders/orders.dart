@@ -22,7 +22,7 @@ class Orders extends StatelessWidget {
           children: [
             Expanded(
               child: OrdersChoose(title: "Orders", icon: Icons.card_giftcard,
-                onTap: () {Get.toNamed(AppRoute.padding);},
+                onTap: () {Get.toNamed(AppRoute.pending);},
               ),
             ),
 
