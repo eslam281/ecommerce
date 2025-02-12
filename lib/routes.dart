@@ -16,6 +16,8 @@ import 'package:ecommercecourse/view/screen/home/productdetails.dart';
 import 'package:ecommercecourse/view/screen/language.dart';
 import 'package:ecommercecourse/view/screen/myfavorite.dart';
 import 'package:ecommercecourse/view/screen/onboarding.dart';
+import 'package:ecommercecourse/view/screen/orders/archive.dart';
+import 'package:ecommercecourse/view/screen/orders/padding.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'core/constant/routes.dart';
 import 'core/middleware/mymiddleware.dart';
@@ -54,4 +56,7 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.cart, page: ()=> const Cart()),
   GetPage(name: AppRoute.checkout, page: ()=> const Checkout()),
 
+  //Orders
+  GetPage(name: AppRoute.padding, page: ()=> const Padding()),
+  GetPage(name: AppRoute.archive, page: ()=> const Archive()),
 ];

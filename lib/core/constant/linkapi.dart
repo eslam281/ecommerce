@@ -51,5 +51,10 @@ class AppLink{
 // ============================== Checkout =================================//
   static const String checkout ="$server/orders/checkout.php";
 
+// ============================== Orders =================================//
+  static const String padding ="$server/orders/padding.php";
+  static const String archive ="$server/orders/archive.php";
+
+
 
 }

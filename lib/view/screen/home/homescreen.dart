@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
 
           bottomNavigationBar:const CustomBottomAppBarHome(),
           body:PopScope(
-            onPopInvokedWithResult:(bool, dynamic){
+            onPopInvokedWithResult:(b, dynamic){
                 alertExitApp();
             },
         canPop: false,

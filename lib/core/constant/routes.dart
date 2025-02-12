@@ -27,5 +27,8 @@ class AppRoute{
   static const String cart = "/cart";
   static const String checkout = "/checkout";
 
+  //Orders
+  static const String padding = "/padding";
+  static const String archive = "/archive";
 
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../view/screen/home/settings.dart';
+import '../../view/screen/orders/orders.dart';
 
 
 
@@ -17,15 +18,13 @@ class HomeScreenControllerImp extends HomeScreenController {
     const Center(
       child: Text("3"),
     ),
-    const Center(
-      child: Text("4"),
-    ),
+    const Orders(),
     const Settings(),
   ];
   List<Map> bottomappbat = [
     {"title": "home", "icon": Icons.home},
-    {"title": "ca", "icon": Icons.notifications_active_outlined},
-    {"title": "profile", "icon": Icons.person},
+    {"title": "Notifications", "icon": Icons.notifications_active_outlined},
+    {"title": "Orders", "icon": Icons.card_giftcard},
     {"title": "settings", "icon": Icons.settings},
   ];
 
