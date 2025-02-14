@@ -5,8 +5,8 @@ Future<String?> getAccessToken() async {
   final serviceAccountJson = {
     "type": "service_account",
     "project_id": "ecommerce-d0db2",
-    "private_key_id": "38bf294a5c509e4b5e53cc50beaff369759ad45b",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCoT78DyE+b5qpF\n029GFj4ZGVMm/hM1gpLRJuppB56PwXOX3qOJxyTVfvPxw5tFv4sDstI+6Nha/rQr\n42slG4LOq6b8JILDeGpgawpbcpOrYfLP/B3uFyyMf8Myl5iEmPi7m1tb6Z4CeJzi\n0mR0j5fG587kW5+R88cElAH9qJtdSJi5TJtsC9eEbjFz3BRomjxY5R4CFMZUrrGH\nyuopsNWtq+NdlmtG5IJgMS/5mCCn1MmQHLBsip4p9JwQlOb/dZgVirTzFzMLwmfq\nnPKJV+9phEAQs+Fj1sPBiapm8aG13AnzCvF1vAC2CCNW2xzrg01bhxpexZk7etIM\nT2ecWYPrAgMBAAECggEASh03jRhXKdzULMQycwfXV2EF8x0dY0o4kT3UKeSvhzjV\nyFHC7KgTCaoKDHMoe/mg4sOK/iW1I7iVqN/PLftjydLfSJdhN2beXM+1s1gMO4L5\nk2k+2rk8pi+aSjxj7juYB7Cc9ae1KvxmhSDFGGikmnM38OmBphjVEaiFCegFZfka\nBPmodO/rKa8/bDqR6aV5xVWtJK6svqY5CNMLhr0HpAGV4XLlYiZjwCILhBXueUYe\nG2qteJ6v9eImb/ezmIxSslm3t3yl/m18JWw8ZhIP0v8ZNx6DjYV/jCU8xG68MBHr\nEfhDdUpUL+gZYa5tuqJcNHsbrLZrxQ6KyxZaWQ3m3QKBgQDq67sbtDogyLdNgT1R\nSGHYQAB42YGx0DKZOoQR73zL1NKYrB9o+NASNqJce6aL4fgh6a+eaqrILwxOOl99\nfWE3s20BfiHWyRY+dgcnKRQyWFK1h0RAqeXs5HN7GOLC5WOPr6Qc9E4R4oBuEUP5\nBMKZBKekb/9RjUGO7+ZY/VSv/wKBgQC3afXQ0/eyrst3J9UHS+xxm/g26HvuqIAy\nMg0kFYayxA7S9DPRbjdxhztPXRdDmkUI97mdF081e7dGvlKVW+r3ERca27zPC1zh\n32wpHJ7BLaShRDt7vAeHx05fp3IE3h83uC3lwkpqBdj6/pAiD2OwvBh6EE456ugS\npfTTvdjsFQKBgA7XDV7Wp8ViaJHw1BrKY8PxZxY7R0IgUNH1LFqlslB+BT+3v9Q1\nw48i/GazOPYlNDOQO5PaUSeMMU7PyTB4Nyf5oa0ydpjG4yzW7+S9Z5U2lyL4hItB\nMFEirVjdXZXKP9vX0JozpKrkkBBj7tNQRaq87IoquQpBzh5lcTu15R+pAoGBAK06\nFWGDIRmQvzgt1aRLj+gJIBhz4MEaQeGmpgSjlBF43GtfGyW9C/5cc6bUTCmcJYF/\nvr3giv3/d60ICiVop/VrHcBPMvb1S2dFRflaP5JCEpABSpDlmNMjaSEsm6J/S0qr\n2CV9KB0UoscD8ItKr6P3MsLubYOEGmWqeh4V2y+1AoGBAOYZ/AI1cVINH4sg2vON\nOeiJITGBtKszS3lS0g4+i6niG4NMxwfMpFYajJLcQLsEOCTMFkUS5yl5foEizIvy\nuz1H/Ys0yWMBfqRbX15s/mYjB7nkksgtxBAGxTnuZunamT1kvO32ATbrkmqGpyFn\niKiaSWhkN015LDhJKG2xTpGZ\n-----END PRIVATE KEY-----\n",
+    "private_key_id": "b723b17c06284afc1504987eb825a8288b4423a8",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCH5aO6x9grrypP\nCHrsStyAwkF0eEGzO4jLQgdOt/BOPsEZ8Czm2S+WHXkNq0vpZbLLmVyXOIokJrNq\nKk1p5upuJpHnZq/E4qCFSm9PFNw1gSdoWh8mLBa9RlOLOXKQjU3YyJic72jkiite\nAe+nqTGdjm/brzo0LC/p38IWA/y6y3Hge88ZlwpHO7tOYJsv8PQyo2c5zf9KImeh\nN61N+BhKDKOiFAXfERHJiFiy1xYvEQSccIzQ9/164S5c/a4Mqnltlu0Oe27E1GRu\nF3Q1o3CdWO25Yp62WtrIO+0xwPK8tyD0TFwzrALPa3ifpflwDKXIOgd1JYYEMCY9\n4hPkguJlAgMBAAECggEACS5K6uXwZTcewRseDtOZ5Pr6qA8txRmLCsxJqRhFHEwi\nCIoQxoG6tMYF9RXy+XAc7aNNPYwczQduTIhSFYr7oHhrl/n4evEijg6yyWFr5RN2\nIZchDpeg66WSJFA7vKdHMJOQt912tSXeeynfUnDcQLwsM2e5o2euzvqGZq1bSBU4\nRxJ5FmVfPV0oKbFfu1/3duUIsjgsG+lSoqhGYGnkwydA8G3rSuJFSfz3kYLLYKrv\nn/Ps45/RkSxYrQ+ysb8Lfd6VmSZE3ifaJbucdGC5wEUinwEhdJbSDUTym+O9iQLk\nqouhBDbB5qlrg7luSB+nNfdWIOZ3sqUihRSjNA46WwKBgQC61BW1VpgbjNoHnGw1\nO2Xkr2BruwSXkSfHGZOU7KpZP/VSXMAYLwkDfT4NapHPnfY7xkToaRFRxhMxy4hc\n5pbaqMdFUrAgiIZzOK3t49pSscVuSRc9gAApkP06WJ4vaxu9xexcmcaeRDZ9DZOj\nF42M1rRlll8wayJOwHW7GfMPFwKBgQC6NjBCtMY7U5U36QbKHWHB1siK2K0cqrOI\nvOYYZenoual0CgqKn6olPN3DB5s7cEX9BqZnddLilA3qcmMWuXJ1+z6ktqB9ExDW\nYALLu8n6CvqvRujMV0Rdi1+pzwajPieQFQ+9drJNPy71jIYmujd/E4vt4/Gxq5/F\nYTKgKNAn4wKBgQCgfB5JryDqSYvgjdXFxEg6sQu6fuPq7p2kwauseb+6+t3Y6iN4\noq6zeJodHDY0ihRCNIZsvhRKkkNauuNgKhPbsK+8NNNmnuAficieWOPptRtLKS31\nfkalbg6YWBdJ1E/4LFRlFxMuUJodwdPYfRryqFw+B3WtOdo2m8yF9Dx98QKBgEIq\ndRWO1I1KEtCODaqNrCnLXvDvMvvnr+mbbYsn02itaAfidYJyX2vh586gCkmhiEzz\nKvfCRw/ZmeQ/hvQRKxm/D7BJcFdhCe+SqAuqi4c8lXzojlnlfFZc6r4U4P/qWvZ4\ndWJWJd8K323C4/wo2QVfda4u+7etCxWAhxOfzO8PAoGAA+cQs1z72atLPtyt5dKe\nIHlHJeFmDL1iiiEzbwvO6qozdkhzdnb9e/PU0g1oE+IcS70XMCR9JL9XH0eHjE54\nMIA4ZqUsRz254b72WSsXy9OV3gmEsE0eZ8eJJmKI77o90j6UqsBZowdeo7PfODCl\nt9WlSZDT3uSSO0kd4qbs9V4=\n-----END PRIVATE KEY-----\n",
     "client_email": "firebase-adminsdk-mf3n2@ecommerce-d0db2.iam.gserviceaccount.com",
     "client_id": "111310430108892448806",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -14,6 +14,7 @@ Future<String?> getAccessToken() async {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mf3n2%40ecommerce-d0db2.iam.gserviceaccount.com",
     "universe_domain": "googleapis.com"
+
   };
 
   List<String> scopes = [
@@ -29,8 +30,7 @@ Future<String?> getAccessToken() async {
     auth.AccessCredentials credentials =
     await auth.obtainAccessCredentialsViaServiceAccount(
         auth.ServiceAccountCredentials.fromJson(serviceAccountJson),
-        scopes,
-        client);
+        scopes, client);
 
     client.close();
     print(
@@ -38,6 +38,7 @@ Future<String?> getAccessToken() async {
     return credentials.accessToken.data;
   } catch (e) {
     print("Error getting access token: $e");
-    return null;
+    return "";
   }
+
 }

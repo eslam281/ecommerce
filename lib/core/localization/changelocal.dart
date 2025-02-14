@@ -22,7 +22,6 @@ class LocaleController extends GetxController{
 
   @override
   void onInit() {
-    getAccessToken();
     requsetPermissionNotification();
     fcmconfing();
     String? shardedPrefLang = myServices.sharedPreferences.getString("lang");

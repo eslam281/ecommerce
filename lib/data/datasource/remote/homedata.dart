@@ -17,4 +17,9 @@ class HomeData{
     await crud.postData(AppLink.search, {"search":search});
     return response.fold((l) => l, (r) => r,);
   }
+  accessToken(String accesstoken)async{
+    var response =
+    await crud.postData(AppLink.test, {"accesstoken":accesstoken});
+    return response.fold((l) => l, (r) => r,);
+  }
 }

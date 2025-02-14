@@ -7,6 +7,7 @@ import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
 import '../../data/datasource/remote/homedata.dart';
 import '../../data/model/itemsmodel.dart';
+import '../../test.dart';
 
 abstract class HomeContorller extends SearchMixController{
   initalData();
@@ -33,9 +34,15 @@ class HomeControllerImp extends HomeContorller{
   }
   @override
   void onInit() {
+    sendMessges();
     getData();
     initalData();
     super.onInit();
+  }
+
+  sendMessges()async{
+    String? accesstoken = await getAccessToken();
+     homeData.accessToken(accesstoken??"");
   }
 
   @override
@@ -76,6 +83,7 @@ class SearchMixController extends GetxController{
   bool isSearch = false;
   List<ItemsModel> listData=[];
   late StatusRequest statusRequest = StatusRequest.onitnial;
+
   HomeData homeData = HomeData(Get.find());
 
   @override
