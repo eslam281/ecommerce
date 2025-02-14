@@ -3,7 +3,6 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../test.dart';
 import '../constant/apptheme.dart';
 
 class LocaleController extends GetxController{
