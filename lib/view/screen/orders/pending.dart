@@ -16,7 +16,7 @@ class Padding extends StatelessWidget {
           return HandlingDataView(
             statusRequest:controller.statusRequest,
             widget: Container(child:
-              Center(child:Text(""),),),
+              const Center(child:Text(""),),),
           );
         }
       ),

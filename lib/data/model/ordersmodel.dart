@@ -39,18 +39,18 @@ class OrdersModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['orders_id'] = this.ordersId;
-    data['orders_usersid'] = this.ordersUsersid;
-    data['orders_address'] = this.ordersAddress;
-    data['orders_type'] = this.ordersType;
-    data['orders_pricedelivery'] = this.ordersPricedelivery;
-    data['orders_price'] = this.ordersPrice;
-    data['orders_coupon'] = this.ordersCoupon;
-    data['orders_totalprice'] = this.ordersTotalprice;
-    data['orders_paymentmethod'] = this.ordersPaymentmethod;
-    data['orders_status'] = this.ordersStatus;
-    data['orders_datetime'] = this.ordersDatetime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['orders_id'] = ordersId;
+    data['orders_usersid'] = ordersUsersid;
+    data['orders_address'] = ordersAddress;
+    data['orders_type'] = ordersType;
+    data['orders_pricedelivery'] = ordersPricedelivery;
+    data['orders_price'] = ordersPrice;
+    data['orders_coupon'] = ordersCoupon;
+    data['orders_totalprice'] = ordersTotalprice;
+    data['orders_paymentmethod'] = ordersPaymentmethod;
+    data['orders_status'] = ordersStatus;
+    data['orders_datetime'] = ordersDatetime;
     return data;
   }
 }

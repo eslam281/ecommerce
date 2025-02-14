@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/core/services/services.dart';
+import 'package:ecommercecourse/test.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,10 +56,13 @@ class LoginControllerImp extends LoginController{
         if(response['status']=="success"){
           if (response["data"]["users_approve"]==1) {
             myServices.sharedPreferences.setString("id", response["data"]["users_id"].toString());
+            String? id = myServices.sharedPreferences.getString("id");
             myServices.sharedPreferences.setString("username", response["data"]["users_name"]);
             myServices.sharedPreferences.setString("email", response["data"]["users_email"]);
             myServices.sharedPreferences.setString("phone", response["data"]["users_phone"]);
             myServices.sharedPreferences.setString("step", "2");
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users$id");
             Get.offNamed(AppRoute.home,);
           }else{
             Get.offNamed(AppRoute.verFiyCodeSignUp,arguments:{

@@ -1,7 +1,9 @@
+import 'package:ecommercecourse/core/functions/fcmconfing.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../test.dart';
 import '../constant/apptheme.dart';
 
 class LocaleController extends GetxController{
@@ -20,6 +22,9 @@ class LocaleController extends GetxController{
 
   @override
   void onInit() {
+    getAccessToken();
+    requsetPermissionNotification();
+    fcmconfing();
     String? shardedPrefLang = myServices.sharedPreferences.getString("lang");
     if(shardedPrefLang == "ar"){
       language = const Locale("ar");

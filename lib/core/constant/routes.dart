@@ -1,4 +1,5 @@
 class AppRoute{
+  static const String lang = "/";
   static const String onBoarding = "/onboarding";
   /// Auth
 
