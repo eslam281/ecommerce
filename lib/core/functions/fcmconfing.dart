@@ -9,7 +9,14 @@ fcmconfing(){
     print("${message.notification!.body}");
     FlutterRingtonePlayer().playNotification();
     Get.snackbar("${message.notification!.title}", "${message.notification!.body}");
-  },);
+    refreshPageNotification(message.data);
+    },);
+}
+
+refreshPageNotification(data){
+  print('====================================================');
+  print(data['pageid']);
+  print(data['pagename']);
 }
 
 requsetPermissionNotification()async{

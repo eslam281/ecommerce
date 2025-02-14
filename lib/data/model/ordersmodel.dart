@@ -1,14 +1,14 @@
 class OrdersModel {
-  String? ordersId;
-  String? ordersUsersid;
-  String? ordersAddress;
-  String? ordersType;
-  String? ordersPricedelivery;
-  String? ordersPrice;
-  String? ordersCoupon;
-  String? ordersTotalprice;
-  String? ordersPaymentmethod;
-  String? ordersStatus;
+  int? ordersId;
+  int? ordersUsersid;
+  int? ordersAddress;
+  int? ordersType;
+  int? ordersPricedelivery;
+  int? ordersPrice;
+  int? ordersCoupon;
+  int? ordersTotalprice;
+  int? ordersPaymentmethod;
+  int? ordersStatus;
   String? ordersDatetime;
 
   OrdersModel(

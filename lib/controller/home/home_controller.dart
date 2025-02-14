@@ -34,13 +34,12 @@ class HomeControllerImp extends HomeContorller{
   }
   @override
   void onInit() {
-    sendMessges();
     getData();
     initalData();
     super.onInit();
   }
 
-  sendMessges()async{
+  sendMessages()async{
     String? accesstoken = await getAccessToken();
      homeData.accessToken(accesstoken??"");
   }
