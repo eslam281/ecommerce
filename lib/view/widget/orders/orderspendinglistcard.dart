@@ -4,11 +4,11 @@ import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jiffy/jiffy.dart';
+
 
 class CardOrdersList extends GetView<PendingControllerImp> {
   final OrdersModel listdata;
-  const CardOrdersList({Key? key, required this.listdata}) : super(key: key);
+  const CardOrdersList({super.key, required this.listdata}) ;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CardOrdersList extends GetView<PendingControllerImp> {
                   // )
                 ],
               ),
-              Divider(),
+              const Divider(),
               Text(
                   "Order Type : ${controller.printOrderType(listdata.ordersType!)}"),
               Text("Order Price : ${listdata.ordersPrice} \$"),
@@ -59,8 +59,8 @@ class CardOrdersList extends GetView<PendingControllerImp> {
                     textColor: AppColor.secondColor,
                     child: const Text("Details"),
                   ),
-                  SizedBox(width: 10),
-                  if (listdata.ordersStatus! == "0") MaterialButton(
+                  const SizedBox(width: 10),
+                  if (listdata.ordersStatus! == 0) MaterialButton(
                     onPressed: () {
 
                     },
