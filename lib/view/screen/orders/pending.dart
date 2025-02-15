@@ -12,7 +12,7 @@ class Padding extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(PendingControllerImp());
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(title:const Text("Orders"),),
         body: GetBuilder<PendingControllerImp>(builder: (controller) {
           return HandlingDataView(
             statusRequest: controller.statusRequest,
@@ -20,10 +20,16 @@ class Padding extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: ListView.builder(
                   itemCount: controller.data.length,
-                  itemBuilder: ((context, index) =>
-                      CardOrdersList(listdata: controller.data[index])),
+                  itemBuilder: ((context, index) {
+                     return Column(
+                       children: [
+                         CardOrdersList(listdata: controller.data[index]),
+                         const SizedBox(height: 20,)
+                       ],
+                     );
+                  }
                 )),
-          );
+          ));
         }));
   }
 }

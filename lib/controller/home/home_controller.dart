@@ -40,6 +40,7 @@ class HomeControllerImp extends HomeContorller{
   }
 
   sendMessages()async{
+    myServices.sharedPreferences.remove("accesstoken");
     String? accesstoken = await getAccessToken();
      homeData.accessToken(accesstoken??"");
   }
