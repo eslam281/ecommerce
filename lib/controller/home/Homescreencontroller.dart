@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/view/screen/home/home.dart';
+import 'package:ecommercecourse/view/screen/home/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,16 +9,14 @@ import '../../view/screen/orders/orders.dart';
 
 
 abstract class HomeScreenController extends GetxController {
-  changePage(int currentpage);
+  changePage(int i);
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentpage = 0;
   List<Widget> listpage = [
     const Home(),
-    const Center(
-      child: Text("3"),
-    ),
+    const NotificationView(),
     const Orders(),
     const Settings(),
   ];

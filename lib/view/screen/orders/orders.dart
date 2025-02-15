@@ -9,8 +9,8 @@ class Orders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return
+       Container(
         height: double.infinity,
         width: double.infinity,
         margin: const EdgeInsets.all(20),
@@ -35,7 +35,6 @@ class Orders extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

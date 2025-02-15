@@ -27,6 +27,7 @@ class AppLink{
   static const String homepage ="$server/home.php";
   static const String items ="$server/items/items.php";
   static const String search ="$server/items/search.php";
+  static const String notification ="$server/notification.php";
 
 // ============================== Favorite =================================//
   static const String favorite_add ="$server/favorite/add.php";
@@ -54,7 +55,5 @@ class AppLink{
 // ============================== Orders =================================//
   static const String pending ="$server/orders/pending.php";
   static const String archive ="$server/orders/archive.php";
-
-
 
 }
