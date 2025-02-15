@@ -34,6 +34,7 @@ class HomeControllerImp extends HomeContorller{
   }
   @override
   void onInit() {
+    // sendMessages();
     getData();
     initalData();
     super.onInit();
@@ -42,7 +43,7 @@ class HomeControllerImp extends HomeContorller{
   sendMessages()async{
     myServices.sharedPreferences.remove("accesstoken");
     String? accesstoken = await getAccessToken();
-     homeData.accessToken(accesstoken??"");
+     homeData.accessToken(accesstoken!);
   }
 
   @override
