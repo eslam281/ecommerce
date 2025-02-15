@@ -3,6 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:get/get.dart';
 
+import '../../controller/notification_controller.dart';
+
 refreshPageNotification(data){
   print('====================================================');
   print(data['pageid']);
@@ -10,9 +12,11 @@ refreshPageNotification(data){
   print("================= current Route");
   print(Get.currentRoute);
   if (Get.currentRoute == "/pending"&& data['pagename'] == "refreshOrderPeding") {
-    print("refresh order =====================================");
     PendingControllerImp controller =Get.find();
     controller.refreshOrder();
+  }else if(Get.currentRoute == "/home"&&data['pagename'] == "refreshOrderPeding"){
+    NotificationControllerImp controllernotify =Get.find();
+    controllernotify.refreshOrder();
   }
 }
 

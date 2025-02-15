@@ -6,7 +6,7 @@ import '../core/class/statusrequest.dart';
 import '../core/functions/handlingdata.dart';
 
 abstract class NotificationController extends GetxController{
-
+  getData();
 }
 class NotificationControllerImp extends NotificationController{
   NotificationData notificationData = NotificationData(Get.find());
@@ -20,10 +20,12 @@ class NotificationControllerImp extends NotificationController{
     super.onInit();
   }
 
+  @override
   getData()async{
+    data.clear();
     statusRequest =StatusRequest.loading;
     var response =await notificationData.getData(
-      myServices.sharedPreferences.getString("userid")!
+      myServices.sharedPreferences.getString("id")!
     );
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
@@ -34,6 +36,9 @@ class NotificationControllerImp extends NotificationController{
       }
     }
     update();
+  }
+  refreshOrder(){
+    getData();
   }
 
 }
