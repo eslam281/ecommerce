@@ -16,31 +16,40 @@ class OrdersDetails extends StatelessWidget {
         padding:const EdgeInsets.all(20),
         child:ListView(children: [
           const SizedBox(height: 20,),
-        Table(
-          border: TableBorder.all(borderRadius:BorderRadius.circular(10)),
-          children: const [
-          TableRow(children:[
-            Text("Item",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20),),
-            Text("QTY",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20)),
-            Text("Price",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20)),
-          ]),
-          TableRow(children:[
-            Text("adf",textAlign:TextAlign.center,),
-            Text("4",textAlign:TextAlign.center),
-            Text("400",textAlign:TextAlign.center),
-          ]),
-          TableRow(children:[
-            Text("Itgfhfkem",textAlign:TextAlign.center,),
-            Text("1",textAlign:TextAlign.center),
-            Text("200",textAlign:TextAlign.center),
-          ]),
-        ],),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical:8),
+          child: Table(
+            border: TableBorder.all(borderRadius:BorderRadius.circular(10)),
+            children: const [
+            TableRow(children:[
+              Text("Item",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20),),
+              Text("QTY",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20)),
+              Text("Price",textAlign:TextAlign.center,style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20)),
+            ]),
+            TableRow(children:[
+              Text("adf",textAlign:TextAlign.center,),
+              Text("4",textAlign:TextAlign.center),
+              Text("400",textAlign:TextAlign.center),
+            ]),
+            TableRow(children:[
+              Text("Itgfhfkem",textAlign:TextAlign.center,),
+              Text("1",textAlign:TextAlign.center),
+              Text("200",textAlign:TextAlign.center),
+            ]),
+          ],),
+        ),
           const SizedBox(height: 20,),
-          const Text("Price :  2400 \$",textAlign:TextAlign.center,style:TextStyle(
-            fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold
-          ),),
+          const Padding(
+            padding:EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+            child: Card(
+              child: Text("Price :  2400 \$",textAlign:TextAlign.center,style:TextStyle(
+                fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold
+              ),),
+            ),
+          ),
           const Card(child: ListTile(
-            title:Text("Home"),
+            title:Text("Home",style:TextStyle(
+                fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold)),
             subtitle:Text("afsl adsf l dafs"),
           ),)
       ],),),
