@@ -40,9 +40,9 @@ class OrdersDetails extends StatelessWidget {
                 ]),
               ],),
             ),
-            const Padding(
-              padding:EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              child: Card(
+            const SizedBox(height: 10,),
+            const Card(
+              child: Padding(padding:EdgeInsets.symmetric(horizontal: 20,vertical: 5),
                 child: Text("Price :  2400 \$",textAlign:TextAlign.center,style:TextStyle(
                     fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold
                 ),),
@@ -51,11 +51,12 @@ class OrdersDetails extends StatelessWidget {
           ],
         ),
           const SizedBox(height: 20,),
-
-          const Card(child: ListTile(
-            title:Text("Home",style:TextStyle(
+           if(controller.ordersModel.ordersType==0)
+           Card(child: ListTile(
+            title:Text("${controller.ordersModel.addressName?.toUpperCase()}",style:const TextStyle(
                 fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold)),
-            subtitle:Text("afsl adsf l dafs"),
+            subtitle:Text("${controller.ordersModel.addressCity} // ${controller.ordersModel.addressStreet}",style:
+            const TextStyle(fontSize:17)),
           ),)
       ],),),
     );

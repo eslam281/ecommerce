@@ -55,5 +55,6 @@ class AppLink{
 // ============================== Orders =================================//
   static const String pending ="$server/orders/pending.php";
   static const String archive ="$server/orders/archive.php";
+  static const String ordersdetails ="$server/orders/details.php";
 
 }
