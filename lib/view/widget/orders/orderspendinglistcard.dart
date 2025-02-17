@@ -54,10 +54,13 @@ class CardOrdersList extends GetView<PendingControllerImp> {
                     color: AppColor.primaryColor, textColor: AppColor.black,
                     child: const Text("Details"),
                   ),
-                  const SizedBox(width: 10),
-                  if (listdata.ordersStatus! == 0) MaterialButton(
-                    onPressed: () {
 
+                  const SizedBox(width: 10),
+
+                  if (listdata.ordersStatus! == 0)
+                    MaterialButton(
+                    onPressed: () {
+                      controller.deleteOrder(listdata.ordersId.toString());
                     },
                     color: AppColor.primaryColor,
                     textColor: AppColor.black,

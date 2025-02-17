@@ -12,6 +12,7 @@ abstract class PendingController extends GetxController{
   String printOrderType(int val);
   String printPaymentMethod(int val);
   String printOrderStatus(int val);
+  deleteOrder(String orderid);
 }
 class PendingControllerImp extends PendingController{
 
@@ -73,5 +74,21 @@ class PendingControllerImp extends PendingController{
 
   refreshOrder(){
     getData();
+  }
+
+  @override
+  deleteOrder(String orderid) async{
+    data.clear();
+    statusRequest =StatusRequest.loading;
+    var response =await testData.deleteData(orderid);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        refreshOrder();
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 }
