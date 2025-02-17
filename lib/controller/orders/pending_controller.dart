@@ -39,6 +39,7 @@ class PendingControllerImp extends PendingController{
       if(response['status']=="success"){
         List responedata = response['data'];
         data.addAll(responedata.map((e) => OrdersModel.fromJson(e),));
+        data =data.reversed.toList();
       }else{
         statusRequest = StatusRequest.failure;
       }

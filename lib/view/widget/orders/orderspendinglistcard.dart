@@ -13,6 +13,7 @@ class CardOrdersList extends GetView<PendingControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PendingControllerImp());
     return Card(
       child: Container(
           padding: const EdgeInsets.all(10),
@@ -37,6 +38,7 @@ class CardOrdersList extends GetView<PendingControllerImp> {
 
               Text("Order Type : ${controller.printOrderType(listdata.ordersType!)}"),
               Text("Order Price : ${listdata.ordersPrice} \$"),
+              Text("Coupon :  ${listdata.ordersCoupon} %"),
               Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
               Text("Payment Method : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
               Text("Order Status : ${controller.printOrderStatus(listdata.ordersStatus!)} "),
@@ -44,8 +46,9 @@ class CardOrdersList extends GetView<PendingControllerImp> {
               const Divider(),
 
               Row(children: [
-                  Text("Total Price : ${listdata.ordersId} \$ ",
-                      style: const TextStyle(color: AppColor.primaryColor, fontWeight: FontWeight.bold)),
+                  Text("Total Price : ${listdata.ordersTotalprice} \$ ",
+                      style: const TextStyle(color: AppColor.primaryColor, fontWeight: FontWeight.bold,
+                      fontFamily:"sans")),
                   const Spacer(),
 
                   MaterialButton(onPressed: () {
