@@ -9,12 +9,17 @@ class OrdersModel {
   int? ordersTotalprice;
   int? ordersPaymentmethod;
   int? ordersStatus;
+  String? ordersDatetime;
   int? addressId;
   int? addressUsersid;
-  String? ordersDatetime;
   String? addressName;
   String? addressCity;
   String? addressStreet;
+  int? couponId;
+  String? couponName;
+  int? couponCount;
+  int? couponDiscount;
+  String? couponExpiredate;
 
   OrdersModel(
       {this.ordersId,
@@ -32,7 +37,12 @@ class OrdersModel {
         this.addressUsersid,
         this.addressName,
         this.addressCity,
-        this.addressStreet});
+        this.addressStreet,
+        this.couponId,
+        this.couponName,
+        this.couponCount,
+        this.couponDiscount,
+        this.couponExpiredate});
 
   OrdersModel.fromJson(Map<String, dynamic> json) {
     ordersId = json['orders_id'];
@@ -51,6 +61,11 @@ class OrdersModel {
     addressName = json['address_name'];
     addressCity = json['address_city'];
     addressStreet = json['address_street'];
+    couponId = json['coupon_id'];
+    couponName = json['coupon_name'];
+    couponCount = json['coupon_count'];
+    couponDiscount = json['coupon_discount'];
+    couponExpiredate = json['coupon_expiredate'];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,6 +86,11 @@ class OrdersModel {
     data['address_name'] = addressName;
     data['address_city'] = addressCity;
     data['address_street'] = addressStreet;
+    data['coupon_id'] = couponId;
+    data['coupon_name'] = couponName;
+    data['coupon_count'] = couponCount;
+    data['coupon_discount'] = couponDiscount;
+    data['coupon_expiredate'] = couponExpiredate;
     return data;
   }
 }

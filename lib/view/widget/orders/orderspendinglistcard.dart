@@ -38,10 +38,12 @@ class CardOrdersList extends GetView<PendingControllerImp> {
 
               Text("Order Type : ${controller.printOrderType(listdata.ordersType!)}"),
               Text("Order Price : ${listdata.ordersPrice} \$"),
-              Text("Coupon :  ${listdata.ordersCoupon} %"),
+              Text("Coupon Discount :  ${listdata.couponDiscount??0} %"),
               Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
               Text("Payment Method : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
               Text("Order Status : ${controller.printOrderStatus(listdata.ordersStatus!)} "),
+              if(listdata.ordersType==0)
+              Text("Address : ${listdata.addressName} "),
 
               const Divider(),
 
