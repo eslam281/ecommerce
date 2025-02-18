@@ -7,7 +7,7 @@ class ItemsModel {
   String? itemsImage;
   int? itemsCount;
   int? itemsActive;
-  var itemsPrice;
+  dynamic itemsPrice;
   int? itemsDiscount;
   String? itemsDate;
   int? itemsCateg;
