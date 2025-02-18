@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home/home_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/linkapi.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
@@ -51,6 +52,11 @@ class Home extends StatelessWidget {
 
                   const CustomTitleHome(title: "Product for you",) ,
                   const ListItemsHome(),
+                  const SizedBox(height: 20,),
+
+                  MaterialButton(onPressed: (){Get.toNamed(AppRoute.offers);},highlightColor:AppColor.primaryColor,
+                  child:const Text("See More Offers",style:TextStyle(fontSize:20,
+                  fontFamily:"sans")),)
                 ],)
                     :
                   ListItemsSearch(listDataModel: controller.listData,)
