@@ -3,6 +3,7 @@ import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../controller/home/settings_controller.dart';
 import '../../../core/constant/imageasset.dart';
@@ -53,7 +54,10 @@ class Settings extends StatelessWidget {
 
               const Divider(),
              ListTile(title:const Text("Contact us"),
-                trailing:const Icon(Icons.phone_callback_outlined),onTap:(){}),
+                trailing:const Icon(Icons.phone_callback_outlined),onTap:() async{
+                   // await launchUrl(Uri.parse("https://wa.me/201064744978"));
+                  await launchUrl(Uri.parse("tel:0201064744978"));
+                 }),
 
               const Divider(),
             ListTile(title:const Text("Logout",style:TextStyle(color:Colors.red,fontSize:20),),

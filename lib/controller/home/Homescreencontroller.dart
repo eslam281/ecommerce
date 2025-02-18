@@ -3,7 +3,7 @@ import 'package:ecommercecourse/view/screen/home/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../view/screen/home/settings.dart';
+import '../../view/screen/settings/settings.dart';
 import '../../view/screen/orders/orders.dart';
 
 

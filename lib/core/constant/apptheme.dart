@@ -13,7 +13,7 @@ ThemeData themeEnglish = ThemeData(
   appBarTheme: const AppBarTheme(
       color: AppColor.primaryColor,
       centerTitle: true,
-      titleTextStyle: TextStyle(fontSize: 20, color: AppColor.black2,
+      titleTextStyle: TextStyle(fontSize: 25, color: AppColor.black2,
           fontWeight:FontWeight.bold)),
 
   floatingActionButtonTheme: FloatingActionButtonThemeData(
