@@ -37,14 +37,14 @@ class CustomItemsOffers extends GetView<OffersController> {
                           ,color:Colors.black,fontSize: 20,fontFamily:"sans"),maxLines: 1),
 
                       Text("${translateDatabase(itemsModel.itemsDescAr
-                          , itemsModel.itemsDesc).substring(0,20)}....",
+                          , itemsModel.itemsDesc).substring(0,30)}....",
                         textAlign:TextAlign.center,),
 
-                      Row(children: [
-                        const Text("Rating 3.5 "),
-                        ...List.generate(5, (index) =>
-                        const Icon(Icons.star,color:Colors.yellow,size:22,),)
-                      ],),
+                      // Row(children: [
+                      //   const Text("Rating 3.5 "),
+                      //   ...List.generate(5, (index) =>
+                      //   const Icon(Icons.star,color:Colors.yellow,size:22,),)
+                      // ],),
 
                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -85,6 +85,7 @@ class CustomItemsOffers extends GetView<OffersController> {
                               }
                           )
                         ],)
+
                     ],),
                 ),
                 if(itemsModel.itemsDiscount!>0)

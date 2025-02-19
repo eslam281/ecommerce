@@ -28,7 +28,12 @@ class OffersView extends StatelessWidget {
               itemBuilder: (context, index) {
                 controllerF.setFavorite(controller.data[index].itemsId,
                     controller.data[index].favorite);
-                return  CustomItemsOffers(itemsModel: controller.data[index]);})),) ,
+                return  Column(
+                  children: [
+                    CustomItemsOffers(itemsModel: controller.data[index]),
+                    const SizedBox(height: 20,),
+                  ],
+                );})),) ,
       ),
     );
   }

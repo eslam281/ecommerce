@@ -40,11 +40,11 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                      , itemsModel.itemsDesc).substring(0,20)}....",
                    textAlign:TextAlign.center,),
           
-                Row(children: [
-                  const Text("Rating 3.5 "),
-                  ...List.generate(5, (index) => 
-                    const Icon(Icons.star,color:Colors.yellow,size:22,),)
-                ],),
+                // Row(children: [
+                //   const Text("Rating 3.5 "),
+                //   ...List.generate(5, (index) =>
+                //     const Icon(Icons.star,color:Colors.yellow,size:22,),)
+                // ],),
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     (itemsModel.itemsDiscount!>0)?
