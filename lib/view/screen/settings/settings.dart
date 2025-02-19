@@ -32,11 +32,10 @@ class Settings extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Card(child:Column(
             children: [
-             ListTile(title:const Text("Disable Notifications"),
+             // ListTile(title:const Text("Disable Notifications"),
+             //    trailing:Switch(value:true, onChanged:(value) {},),onTap:(){}),
+             //  const Divider(),
 
-                trailing:Switch(value:true, onChanged:(value) {},),onTap:(){}),
-
-              const Divider(),
               ListTile(title:const Text("Profile"),
                   trailing:const Icon(Icons.person_2_outlined),onTap:(){
 

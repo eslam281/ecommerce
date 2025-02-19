@@ -51,14 +51,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     Row(children: [
                       Text("${itemsModel.itemsPrice-(itemsModel.itemsPrice*itemsModel.itemsDiscount/100)} \$",style:const
                       TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
-                          fontSize:18,fontFamily:"sans")),
+                          fontSize:19,fontFamily:"sans")),
           
                       const SizedBox(width: 15,),
           
                       Text("${itemsModel.itemsPrice} \$",style:
                       const TextStyle(fontWeight:FontWeight.bold,color:Colors.red,
-                          fontSize:18,fontFamily:"sans",
-                          decoration:TextDecoration.lineThrough,decorationColor: Colors.red,
+                          fontSize:19,fontFamily:"sans",decorationThickness:2,height:1.8,
+                          decoration:TextDecoration.lineThrough,decorationColor:Colors.red,
                           ),),
                     ],)
                         :
