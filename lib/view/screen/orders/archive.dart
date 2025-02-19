@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/orders/archive_controller.dart';
 import '../../../core/class/handlingdataview.dart';
+import '../../widget/orders/cardorderslistarchive.dart';
 import '../../widget/orders/orderspendinglistcard.dart';
 
 class Archive extends StatelessWidget {
@@ -23,7 +24,7 @@ class Archive extends StatelessWidget {
                     itemBuilder: ((context, index) {
                       return Column(
                         children: [
-                          CardOrdersList(listdata: controller.data[index]),
+                          CardOrdersListArchive(listdata: controller.data[index]),
                           const SizedBox(height: 20,)
                         ],
                       );
