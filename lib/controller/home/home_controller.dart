@@ -22,9 +22,10 @@ class HomeControllerImp extends HomeContorller{
   String? id;
   late String lang;
 
-  List data =[];
+
   List categories =[];
   List items =[];
+  Map settingsdata = {};
 
   @override
   initalData(){
@@ -55,6 +56,7 @@ class HomeControllerImp extends HomeContorller{
       if(response['status']=="success"){
         categories.addAll(response['categories']["data"]);
         items.addAll(response['items']["data"]);
+        settingsdata.addAll(response['settings']);
       }else{
         statusRequest = StatusRequest.failure;
       }
