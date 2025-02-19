@@ -11,7 +11,7 @@ import '../../../controller/orders/archive_controller.dart';
 
 
 void showDialogRating(BuildContext context,String orderid){
-  final _dialog = RatingDialog(
+  final dialog = RatingDialog(
     initialRating: 1.0,
     // your app's name?
     title: const Text(
@@ -53,6 +53,6 @@ void showDialogRating(BuildContext context,String orderid){
   showDialog(
     context: context,
     barrierDismissible: true, // set to false if you want to force a rating
-    builder: (context) => _dialog,
+    builder: (context) => dialog,
   );
 }

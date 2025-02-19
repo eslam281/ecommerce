@@ -50,13 +50,14 @@ class Home extends StatelessWidget {
                   const CustomTitleHome(title: "Categories",),
                   ListCategoriesHome(controller: controller,),
 
-                  const CustomTitleHome(title: "Product for you",) ,
+                  const CustomTitleHome(title: "Top selling",) ,
                   const ListItemsHome(),
-                  const SizedBox(height: 20,),
+                  const SizedBox(height: 100,),
 
-                  MaterialButton(onPressed: (){Get.toNamed(AppRoute.offers);},highlightColor:AppColor.primaryColor,
-                  child:const Text("See More Offers",style:TextStyle(fontSize:20,
-                  fontFamily:"sans")),)
+                  MaterialButton(onPressed: (){Get.toNamed(AppRoute.offers);},highlightColor:Colors.yellow,
+                    color:AppColor.primaryColor,elevation: 2,
+                  child:const Text("See More Offers",style:TextStyle(fontSize:25,wordSpacing:2,
+                      fontFamily:"sans")),)
                 ],)
                     :
                   ListItemsSearch(listDataModel: controller.listData,)
