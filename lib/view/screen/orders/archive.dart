@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../../controller/orders/archive_controller.dart';
 import '../../../core/class/handlingdataview.dart';
 import '../../widget/orders/cardorderslistarchive.dart';
-import '../../widget/orders/orderspendinglistcard.dart';
 
 class Archive extends StatelessWidget {
   const Archive({super.key});

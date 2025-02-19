@@ -49,7 +49,7 @@ class OrdersDetails extends StatelessWidget {
                    Card(
                     child: Padding(padding:const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
                       child: Text("Total Price :  ${controller.ordersModel.ordersTotalprice} \$",textAlign:TextAlign.center,style:const TextStyle(
-                          fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold
+                          fontSize:20,color:AppColor.primaryColor,fontWeight:FontWeight.bold,fontFamily:"sans"
                       ),),
                     ),
                   ),

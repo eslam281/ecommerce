@@ -63,8 +63,9 @@ class CardOrdersListArchive extends GetView<ArchiveControllerImp> {
                   child: const Text("Details"),
                 ),
                 const SizedBox(width: 10,),
+                if(listdata.ordersRating == 0)
                 MaterialButton(onPressed: () {
-                  showDialogRating(context);
+                  showDialogRating(context,listdata.ordersId.toString());
                 },
                   color: AppColor.primaryColor, textColor: AppColor.black,
                   child: const Text("Rating"),

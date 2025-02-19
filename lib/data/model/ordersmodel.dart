@@ -20,6 +20,8 @@ class OrdersModel {
   int? couponCount;
   int? couponDiscount;
   String? couponExpiredate;
+  int? ordersRating;
+  String? ordersNoterating;
 
   OrdersModel(
       {this.ordersId,
@@ -39,6 +41,8 @@ class OrdersModel {
         this.addressCity,
         this.addressStreet,
         this.couponId,
+        this.ordersRating,
+        this.ordersNoterating,
         this.couponName,
         this.couponCount,
         this.couponDiscount,
@@ -65,6 +69,8 @@ class OrdersModel {
     couponName = json['coupon_name'];
     couponCount = json['coupon_count'];
     couponDiscount = json['coupon_discount'];
+    ordersRating = json['orders_rating'];
+    ordersNoterating = json['orders_noterating'];
     couponExpiredate = json['coupon_expiredate'];
   }
 
@@ -88,6 +94,8 @@ class OrdersModel {
     data['address_street'] = addressStreet;
     data['coupon_id'] = couponId;
     data['coupon_name'] = couponName;
+    data['orders_rating'] = ordersRating;
+    data['orders_noterating'] = ordersNoterating;
     data['coupon_count'] = couponCount;
     data['coupon_discount'] = couponDiscount;
     data['coupon_expiredate'] = couponExpiredate;

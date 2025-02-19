@@ -11,11 +11,11 @@ abstract class ArchiveController extends GetxController{
   getData();
   String printOrderType(int val);
   String printPaymentMethod(int val);
-  submitRating(double rating ,String comment);
+  submitRating(String orderid,double rating ,String comment);
 }
 class ArchiveControllerImp extends ArchiveController{
 
-  OrdersArchiveData testData = OrdersArchiveData(Get.find());
+  OrdersArchiveData orderData = OrdersArchiveData(Get.find());
   List<OrdersModel> data =[];
   StatusRequest statusRequest =StatusRequest.onitnial ;
   MyServices myServices = Get.find();
@@ -31,7 +31,7 @@ class ArchiveControllerImp extends ArchiveController{
   getData()async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await testData.getData(
+    var response =await orderData.getData(
         myServices.sharedPreferences.getString("id")!);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
@@ -55,8 +55,19 @@ class ArchiveControllerImp extends ArchiveController{
     return (val == 0)? "Cash On Delivery": "Payment Card";
   }
 
-  submitRating(rating ,String comment){
-
+  @override
+  submitRating(String orderid,rating ,String comment)async{
+    statusRequest =StatusRequest.loading;
+    var response =await orderData.rating(orderid,comment,rating.toString());
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+       getData();
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 
 }
