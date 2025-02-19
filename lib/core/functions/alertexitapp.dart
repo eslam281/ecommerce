@@ -7,11 +7,23 @@ alertExitApp(){
 
   return Get.defaultDialog(
     title:"alert",middleText:"Do want exit from the app",
-    confirm:ElevatedButton(onPressed: (){
-      exit(0);
-    }, child: const Text("Confirm")),
-    cancel:ElevatedButton(onPressed: (){
-      Get.back();
-    }, child: const Text("Cancel"))
+
+    confirm: Container(
+      margin:const EdgeInsets.only(left: 10),
+      child: MaterialButton(onPressed: (){
+        exit(0);
+      },color:Colors.red,
+          shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15)),
+          child: const Text("Exit",style:TextStyle(fontSize: 17,fontFamily:"sans"),) ),
+    ),
+
+    cancel:Container(
+      margin:const EdgeInsets.only(right: 10),
+      child: MaterialButton(onPressed: (){
+        Get.back();
+      },color:Colors.green
+        ,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15)),
+        child: const Text("Cancel",style:TextStyle(fontSize: 17,fontFamily:"sans")),),
+    ),
   );
 }
