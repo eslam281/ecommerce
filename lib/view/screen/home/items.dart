@@ -22,6 +22,7 @@ class Items extends StatelessWidget {
     Get.put(ItemsControllerImp());
     FavoriteControllerImp controllerF = Get.put(FavoriteControllerImp());
     return Scaffold(
+      appBar:AppBar(),
       body:Container(
         padding: const EdgeInsets.all(15),
         child:GetBuilder<ItemsControllerImp>(builder:(controller) =>

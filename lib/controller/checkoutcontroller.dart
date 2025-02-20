@@ -69,8 +69,9 @@ class CheckoutControllerImp extends CheckoutController{
         List responsedata=response['data'];
         dataAddress.addAll(responsedata.map((e) =>
             AddressModel.fromJson(e),));
+        // addressId=dataAddress[0].addressId;
       } else {
-        statusRequest = StatusRequest.failure;
+
       }
     }
     update();
@@ -79,7 +80,7 @@ class CheckoutControllerImp extends CheckoutController{
   checkout()async{
     if(paymentMethod==null)return Get.snackbar("Error","please select a payment method");
     if(deliveryType==null)return Get.snackbar("Error","please select a delivery method");
-    if(addressId==null&&deliveryType!="1")return Get.snackbar("Error","please select a address method");
+    if(addressId==null&& deliveryType =="0")return Get.snackbar("Error","please select a address method");
 
     statusRequest = StatusRequest.loading;
     update();

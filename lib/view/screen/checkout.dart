@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/checkoutcontroller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/imageasset.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -89,9 +90,18 @@ class Checkout extends StatelessWidget {
                             subtitle:"${controller.dataAddress[index].addressCity} // ${controller.dataAddress[index].addressStreet}"
                             ,isActive:controller.dataAddress[index].addressId == controller.addressId),
                       )
-                  )
-
-
+                  ),
+                   const SizedBox(height: 10),
+                   Row(mainAxisAlignment:MainAxisAlignment.center,
+                     children: [
+                       const Text("Add Address"),
+                       Container(margin:const EdgeInsets.only(left: 20),
+                           decoration:BoxDecoration(
+                               color:AppColor.primaryColor,borderRadius:BorderRadius.circular(100)
+                           ),
+                           child: IconButton(onPressed: (){Get.toNamed(AppRoute.addressAdd);},
+                             icon: const Icon(Icons.add),))
+                     ],)
 
                 ],)
             ],),),

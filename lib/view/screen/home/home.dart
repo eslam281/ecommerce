@@ -45,8 +45,8 @@ class Home extends StatelessWidget {
                 Column(children: [
                   const SizedBox(height: 10,),
 
-                   CustomCardHome(title:"${controller.settingsdata["settings_titleone"]}"
-                    ,body:"${controller.settingsdata["settings_bodyhome"]}",),
+                   CustomCardHome(title:" ${controller.settingsdata["settings_titleone"]}"
+                    ,body:" ${controller.settingsdata["settings_bodyhome"]}",),
 
                   const CustomTitleHome(title: "Categories",),
                   ListCategoriesHome(controller: controller,),
